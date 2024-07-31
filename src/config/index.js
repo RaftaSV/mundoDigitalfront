@@ -16,8 +16,11 @@ export const ROUTES = {
   NOTFOUND: {
     path: 'NotFound',
     absolutePath: '/NotFound'
+  },
+  PRODUCT: {
+    path: '/productos/:categoryId', // Ruta con parámetro
+    absolutePath: (categoryId) => `/productos/${categoryId}` // Función para construir la ruta con el id
   }
 }
-
 
 export default config;

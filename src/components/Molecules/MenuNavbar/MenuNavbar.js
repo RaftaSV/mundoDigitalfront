@@ -9,7 +9,7 @@ import {ROUTES} from 'config';
 import Title from 'components/Atoms/Title';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-
+import useTokenInformation from 'hooks/useTokenInformation';
 
 
 const MenuNavbar = () => {
@@ -17,15 +17,8 @@ const MenuNavbar = () => {
   const { themeToggle, theme } = useAppTheme();
 
   const [authToken, setAuthToken] = useState(getCookies('auth-token'));
-  const token = getCookies('auth-token');
-  let user;
-  let branch;
-  if (token) {
-    const payload = token.split('.')[1];
-    const decoded = atob(payload);
-    const userObject = JSON.parse(decoded);
-    user = userObject.User.user_name;
-  }
+const {firstName} = useTokenInformation();
+
   const navigate = useNavigate();
   const location = window.location.pathname;
   const isLoginPage = location === ROUTES.LOGIN.absolutePath;
@@ -40,7 +33,7 @@ const MenuNavbar = () => {
   return (
     <StyleMenuNavbar>
       <StyleText>
-        <Title size={17}>{user ? user.toUpperCase() : ''}</Title>
+        <Title size={17}>{firstName ? firstName.toUpperCase() : ''}</Title>
       </StyleText>
       <StyleMenuItem
         color="transparent"

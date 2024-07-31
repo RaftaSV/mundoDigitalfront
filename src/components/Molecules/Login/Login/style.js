@@ -37,6 +37,7 @@ ${mediaQueries.mobile}{
   max-width: 85vw;
   min-width: 70vw;
   align-items: center;
+    ustify-content: space-between;
   min-height: 80vh;
   box-shadow: ${({ theme }) => theme.colors.boxShadow};
   margin-top: 3%;
@@ -58,7 +59,7 @@ export const Style = styled.form`
     flex-direction: column;
   }
   ${mediaQueries.desktop}{
-    width: 50%;
+    width: 60%;
     border-radius: 16px;
     display: flex;
     border: 2px;

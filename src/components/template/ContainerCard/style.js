@@ -22,8 +22,8 @@ export const Container = styled.div`
   }
 
   ${mediaQueries.desktop} {
-    min-height: 55vh;
-    max-height: 57vh;
+    min-height: 1vh;
+    max-height: 95vh;
     width: 98%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(${({ $widthDesktop }) => $widthDesktop}px, 0px));

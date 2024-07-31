@@ -1,7 +1,7 @@
 import Input from 'components/Atoms/Input';
 import { SearchIcon, StyleWrapper } from './style';
 import Search from 'components/Atoms/Icons/search';
-const HeaderFilter = ({ value, handleSearch, useRef}) => {
+const HeaderFilter = ({ value, handleSearch, placeHolder ,useRef}) => {
 
   return (
     <StyleWrapper>
@@ -9,7 +9,7 @@ const HeaderFilter = ({ value, handleSearch, useRef}) => {
         size='500'
         sizeTablet='400'
         sizeMobile='180'
-        placeholder="Busca tu categoria favorita"
+        placeholder={placeHolder}
         value={value}
         onChange={handleSearch}
         autoFocus={true}

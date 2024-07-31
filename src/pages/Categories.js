@@ -18,6 +18,7 @@ function Categories() {
   const { visible: isUpdate, onHidden, onVisible, } = useModal();
   const [searchTerm, setSearchTerm] = useState('');
   const  inputRef = useRef(null);
+
   const [deleteCategory] = useMutation(`/Categories`, {
     refresh,
     method: 'delete'
@@ -48,17 +49,16 @@ function Categories() {
   const handleSearch = (e) => {
     setSearchTerm(e.target.value);
   }
-  
+
 
   const filteredCategories = data?.categories?.filter((Category) =>
     Category.categoryName.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-
   return (
     <Layout>
-      <HeaderPage title="Categorías" >
-      <HeaderFilter handleSearch={handleSearch} useRef={inputRef}/>
+      <HeaderPage title={"Categorías"} >
+      <HeaderFilter handleSearch={handleSearch} placeHolder={'Busca tu categoria favorita'} useRef={inputRef}/>
       </HeaderPage>
       {loading ? (
         <Loader />
@@ -73,6 +73,7 @@ function Categories() {
             return (
                   <CardCategories
                   key={categoryId}
+                  categoryId={categoryId}
                   name={categoryName}
                   image={urlImage}
                   onEdit={() => onEdit(Category)}

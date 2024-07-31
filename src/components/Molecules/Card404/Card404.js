@@ -10,7 +10,7 @@ const Card404 = ()  => {
   return (
     <StyleWrapper>
       <Title size={60}>Pagina no encontrada</Title>
-      <Link to={ROUTES.PRIMARY.absolutePath}>
+      <Link to={ROUTES.HOME.absolutePath}>
         <StyleButtonRegresar>
           <Return/>
         </StyleButtonRegresar>

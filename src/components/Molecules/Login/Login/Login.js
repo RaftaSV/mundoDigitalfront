@@ -40,7 +40,7 @@ const SignInForm = () => {
 
   return (
     <FormContainer>
-      <StyleImageLogo loading="lazy" src="loo.png" />
+      <StyleImageLogo loading="lazy" src="logo.png" />
       <Style>
         <StyleImageAvatar loading="lazy" src="Avatar.png" />
         <Title size={18}>Correo</Title>
