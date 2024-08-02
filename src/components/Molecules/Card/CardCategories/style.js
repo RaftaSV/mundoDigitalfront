@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import {mediaQueries} from 'styles/theme';
 
 export const StyleWrapper = styled.div`
+  border: 2px solid ${({theme}) => theme.colors.borderInput};
   margin-top: 20px;
   gap:10px;
   ${mediaQueries.mobile} {

@@ -33,7 +33,7 @@ const Products = () => {
     setSearchTerm(e.target.value);
   };
 
-  const filteredCategories = data?.products?.filter(product =>
+  const filteredProducts = data?.products?.filter(product =>
     product.productName.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
@@ -51,7 +51,7 @@ const Products = () => {
         <Loader />
       ) : (
         <ContainerCard widthDesktop={270} widthTablet={250} widthMobile={200}>
-          {filteredCategories?.map(product => {
+          {filteredProducts?.map(product => {
             const { productId, productName, model, price, urlImage } = product;
             return (
               <CardProducts

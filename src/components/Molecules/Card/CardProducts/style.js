@@ -4,6 +4,7 @@ import {mediaQueries} from 'styles/theme';
 export const StyleWrapper = styled.div`
   margin-top: 20px;
   gap:10px;
+  border: 2px solid ${({theme}) => theme.colors.borderInput};
   ${mediaQueries.mobile} {
     width: 300px;
     height: 130px;
@@ -18,7 +19,7 @@ export const StyleWrapper = styled.div`
     display: flex;
     border-radius: 10px;
     position: relative;
-    background: ${({ theme }) => theme.colors.bgCard};
+    background:${({ theme }) => theme.colors.bgCard};
   }
   ${mediaQueries.desktop} {
     width: 400px;
@@ -33,7 +34,9 @@ export const StyleWrapper = styled.div`
 
 
 export const StyleImage = styled.img`
- ${mediaQueries.mobile} {
+  margin-top: 2px;
+  margin-left: 2px;
+  ${mediaQueries.mobile} {
    width: 100px;
    height: 85px;
 

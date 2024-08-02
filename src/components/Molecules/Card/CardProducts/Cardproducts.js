@@ -1,10 +1,13 @@
 import Title from 'components/Atoms/Title';
 import {StyleImage, StyleImageContainer, StyleTextInformation, StyleWrapper} from './style';
+import {Link} from 'react-router-dom';
+import {ROUTES} from 'config';
 
 
 const CardProducts = ({ image, name,productId, model, price, onEdit,onRemove, ...restProps}) => {
 
   return (
+    <Link to={ROUTES.PRODUCT_INFORMATION.absolutePath(productId)}>
     <StyleWrapper>
       <StyleImageContainer>
         <StyleImage src={image}/>
@@ -15,6 +18,7 @@ const CardProducts = ({ image, name,productId, model, price, onEdit,onRemove, ..
         <Title size={16} size_mobile={12}>${price}</Title>
       </StyleTextInformation>
     </StyleWrapper>
+    </Link>
   );
 };
 

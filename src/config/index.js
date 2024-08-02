@@ -20,6 +20,10 @@ export const ROUTES = {
   PRODUCT: {
     path: '/productos/:categoryId', // Ruta con parámetro
     absolutePath: (categoryId) => `/productos/${categoryId}` // Función para construir la ruta con el id
+  },
+  PRODUCT_INFORMATION: {
+    path: '/InformacionProducto/:productId',
+    absolutePath: (productId) => `/InformacionProducto/${productId}`
   }
 }
 
