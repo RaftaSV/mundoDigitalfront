@@ -50,7 +50,7 @@ const Products = () => {
       {loading ? (
         <Loader />
       ) : (
-        <ContainerCard widthDesktop={270} widthTablet={250} widthMobile={200}>
+        <ContainerCard widthDesktop={400} widthTablet={370} widthMobile={300}>
           {filteredProducts?.map(product => {
             const { productId, productName, model, price, urlImage } = product;
             return (
