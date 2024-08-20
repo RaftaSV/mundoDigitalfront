@@ -10,12 +10,12 @@ import showAlert from 'components/Atoms/SweetAlert';
 
 const AddModalCategory = ({ isOpen, onCancel, onRefresh, isUpdate = false, Category = null }) => {
   const [createOrUpdateCategory, { loading: loadingAddOrUpdateCategory }] = useMutation(
-    isUpdate ? `/Categories/${Category?.category_id}` : '/Categories',
+    isUpdate ? `/Categories/${Category?.categoryId}` : '/Categories',
     {
       method: isUpdate ? 'put' : 'post', // post = create, put = update
       refresh: async () => {
-        onCancel();
         await onRefresh();
+        onCancel();
       },
     }
   );
@@ -64,9 +64,15 @@ const AddModalCategory = ({ isOpen, onCancel, onRefresh, isUpdate = false, Categ
     >
       <Form id="form-Categories" method="POST" onSubmit={onSubmit}>
           <Title size={13}>Nombre</Title>
-          <Input defaultValue={Category?.category_name}
-                 name="category_name"
-                 placeholder="Ejemplo: Accrsorios para cabello" type="text"
+          <Input defaultValue={Category?.categoryName}
+                 name="categoryName"
+                 placeholder="Ejemplo: Laptops" type="text"
+                 autoFocus={true}
+                 required />
+        <Title size={13}>Url imagen</Title>
+          <Input defaultValue={Category?.urlImage}
+                 name="urlImage"
+                 placeholder="Ejemplo: https://www.imagen.com/imagen.png" type="text"
                  autoFocus={true}
                  required />
         </Form>

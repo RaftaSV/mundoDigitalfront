@@ -14,14 +14,17 @@ export const Form = styled.form`
  }
   ${mediaQueries.tablet}{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
   }
   ${mediaQueries.desktop}{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
   }
 `;
-export const DivLeft = styled.div `
+export const Container = styled.div `
   ${mediaQueries.mobile} {
     display: flex;
     flex-direction: column;

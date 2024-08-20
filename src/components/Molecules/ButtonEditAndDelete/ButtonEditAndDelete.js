@@ -14,10 +14,16 @@ const ButtonEditAndDelete = ({ onEdit, onRemove, isInventories = false, showSend
 
   return (
     <StyleWrapper>
-      <StyleButtonEdit onClick={onEdit}>
+      <StyleButtonEdit onClick={(event)=> {
+        event.preventDefault();
+        onEdit();
+      }}>
         <PencilFilled />
       </StyleButtonEdit>
-      <StyleButtonDelete onClick={onRemove}>
+      <StyleButtonDelete onClick={(event)=>{
+        event.preventDefault();
+        onRemove();
+      }}>
         <Delete />
       </StyleButtonDelete>
       {isInventories && (

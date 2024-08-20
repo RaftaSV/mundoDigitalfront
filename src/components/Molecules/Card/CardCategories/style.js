@@ -6,7 +6,7 @@ export const StyleWrapper = styled.div`
   margin-top: 20px;
   gap:10px;
   ${mediaQueries.mobile} {
-    width: 200px;
+    width: 20rn 0px;
     height: 110px;
     display: flex;
     border-radius: 10px;

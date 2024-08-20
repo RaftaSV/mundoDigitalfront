@@ -15,8 +15,8 @@ const HeaderPage = ({ title, onAdd = null, children, validation = true }) => {
 
   return (
     <StyleWrapper>
-      <Title htmlTag="h1" size={38} 
-      size_mobile={25}
+      <Title htmlTag="h1" size={38}
+      size_mobile={19}
       >
         {title}
       </Title>

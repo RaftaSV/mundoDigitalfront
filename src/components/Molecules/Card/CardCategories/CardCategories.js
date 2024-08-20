@@ -3,6 +3,7 @@ import Title from 'components/Atoms/Title';
 import {StyleImage, StyleWrapper} from './style';
 import {Link} from 'react-router-dom';
 import {ROUTES} from 'config';
+import ButtonEditAndDelete from 'components/Molecules/ButtonEditAndDelete';
 
 
 const CardCategories = ({ image, name,onEdit,onRemove,categoryId, ...restProps}) => {
@@ -10,8 +11,9 @@ const CardCategories = ({ image, name,onEdit,onRemove,categoryId, ...restProps})
   return (
     <Link to={ROUTES.PRODUCT.absolutePath(categoryId)}>
     <StyleWrapper>
+      <ButtonEditAndDelete onEdit={onEdit} onRemove={onRemove}/>
       <StyleImage src={image}/>
-      <Title size={25} size_mobile={20}>{name}</Title>
+      <Title  htmlTag={'p'} size={25} size_mobile={18}>{name}</Title>
     </StyleWrapper>
     </Link>
   );

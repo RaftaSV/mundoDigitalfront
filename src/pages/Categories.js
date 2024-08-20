@@ -4,7 +4,7 @@ import {useEffect, useRef, useState} from 'react';
 import Layout from 'components/Organisms/Layout';
 import Loader from 'components/Molecules/Loader';
 import HeaderPage from 'components/Molecules/HeaderPage';
-import  AddModalCategory  from 'components/Molecules/Modal/ModalCategory';
+import AddModalCategory  from 'components/Molecules/Modal/ModalCategory';
 import useMutation from 'hooks/useMutation';
 import CardCategories from 'components/Molecules/Card/CardCategories';
 import modalDelete from 'components/Molecules/Modal/ModalDelete';
@@ -57,7 +57,7 @@ function Categories() {
 
   return (
     <Layout>
-      <HeaderPage title={"Categorías"} >
+      <HeaderPage title="Categorias" onAdd={onToggle} >
       <HeaderFilter handleSearch={handleSearch} placeHolder={'Busca tu categoria favorita'} useRef={inputRef}/>
       </HeaderPage>
       {loading ? (
@@ -83,7 +83,11 @@ function Categories() {
           })}
         </ContainerCard>
       )}
-      <AddModalCategory Category={CategoryEdit} isOpen={visible} isUpdate={isUpdate} onRefresh={refresh} onCancel={onClose}  />
+      <AddModalCategory Category={CategoryEdit}
+                        isOpen={visible}
+                        isUpdate={isUpdate}
+                        onRefresh={refresh}
+                        onCancel={onClose}  />
     </Layout>
   );
 }

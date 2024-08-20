@@ -4,9 +4,9 @@ import Button from 'components/Atoms/Button';
 export const StyleWrapper = styled.div`
   position: absolute;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   width: max-content;
-  top:0;
+  bottom:0;
   right:0;
 `;
 

@@ -13,10 +13,10 @@ import {
   StyleImageLogo,
   StyleShowPassword,
   Checkbox,
-  TITLE
+  TITLE,
 } from './style';
 
-const SignInForm = () => {
+const SignInForm = ({onClickUser}) => {
   const { login } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -38,13 +38,14 @@ const SignInForm = () => {
     await login(email, password, () => setIsLoading(false));
   };
 
+
   return (
     <FormContainer>
       <StyleImageLogo loading="lazy" src="logo.png" />
       <Style>
-        <StyleImageAvatar loading="lazy" src="Avatar.png" />
+        <StyleImageAvatar loading="lazy" src="Avatar.png"/>
         <Title size={18}>Correo</Title>
-        <Input placeholder="Digite su correo" type="text" value={email} onChange={handleChangeUsername} />
+        <Input placeholder="Digite su correo" type="email" value={email} onChange={handleChangeUsername}/>
         <Title size={18}>Contraseña</Title>
         <Input
           placeholder="Digite su contraseña"
@@ -53,11 +54,14 @@ const SignInForm = () => {
           onChange={handleChangePassword}
         />
         <StyleShowPassword>
-          <Checkbox type="checkbox" checked={showPassword} onChange={toggleShowPassword} />
-          <TITLE size={17}>Mostrar contraseña</TITLE>
+          <Checkbox type="checkbox" checked={showPassword} onChange={toggleShowPassword}/>
+          <Title size={15}>Mostrar contraseña</Title>
         </StyleShowPassword>
         <Button type="submit" disabled={isLoading} onClick={handleSubmit}>
-          {isLoading ? <Loading /> : 'INGRESAR'}
+          {isLoading ? <Loading/> : 'INGRESAR'}
+        </Button>
+        <Button type="button" color="transparent" onClick={onClickUser}>
+          Regístrate aquí
         </Button>
       </Style>
     </FormContainer>

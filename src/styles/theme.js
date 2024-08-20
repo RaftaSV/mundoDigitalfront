@@ -24,6 +24,7 @@ const colorsLight = {
   border_animation: 'linear-gradient(var(--angle), #000027, white, white, #000027);', // Animación del borde
   colorHome: '#212121', // Color de inicio gris oscuro
   selected: '#3a5659', // Elemento seleccionado gris claro
+  overlay: 'rgba(222,228,229,0.6)'
 };
 
 
@@ -52,6 +53,7 @@ const colorsDark = {
   border_animation: 'linear-gradient(var(--angle), #000027, white, white, #000027);',
   colorHome: '#fafafa',
   selected: '#373c56',
+  overlay: 'rgba(0,11,12,0.49)'
 };
 
 const zIndex = {

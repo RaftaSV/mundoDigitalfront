@@ -37,7 +37,7 @@ ${mediaQueries.mobile}{
   max-width: 85vw;
   min-width: 70vw;
   align-items: center;
-    ustify-content: space-between;
+    justify-content: space-between;
   min-height: 80vh;
   box-shadow: ${({ theme }) => theme.colors.boxShadow};
   margin-top: 3%;
@@ -59,7 +59,7 @@ export const Style = styled.form`
     flex-direction: column;
   }
   ${mediaQueries.desktop}{
-    width: 60%;
+    width: 50%;
     border-radius: 16px;
     display: flex;
     border: 2px;
@@ -93,10 +93,10 @@ export const StyleRegisterUser = styled.div`
 export const StyleImageLogo = styled.img `
   border-radius: 12px;
   min-width: 150px;
-  max-width: 90vh;
+  width: 45%;
   padding: 20px;
   display: none;
-  max-height: 470px;
+  max-height: 450px;
   margin-top: -50px;
   animation-direction: alternate-reverse;
   @media screen and (min-width: 768px) {
@@ -108,28 +108,14 @@ export const StyleImageLogo = styled.img `
 export const StyleShowPassword = styled.div`
   display: flex;
   flex-direction: row;
-  align-items: center;
-  align-content: center;
-  @media screen and (min-width: 768px) {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    align-content: center;
-  }
+  gap: 20px;
+  justify-content: center;
   `;
 
 export const Checkbox = styled(Input)`
+  display: flex;
   width: 17px;
-  padding: 0 100px;
-
+  margin-left: 20px;
 `;
 
-export const TITLE = styled(Title)`
-  margin-left: 10px;
-  margin-top: -3px;
-  @media screen and (min-width: 768px) {
-    margin-left: 10px;
-    margin-top: -8px;
-  }
-`
 

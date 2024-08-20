@@ -9,7 +9,6 @@ export const StyleBody = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px;
   z-index: ${({ theme }) => theme.zIndex.modal} ;
   overflow-y: auto;
   @media screen and (min-width: 768px) {

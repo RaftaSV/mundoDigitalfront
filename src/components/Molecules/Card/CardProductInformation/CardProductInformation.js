@@ -11,12 +11,10 @@ return (
     <StyleContainer>
       <StyledImgContainer>
       <StyledImg src={urlImage}/>
-        <br/>
-        <Title color={'placeholder'} size={30} size_mobile={20} lineHeight={10}>Precio: ${price}</Title>
+        <Title  htmlTag={'h1'} color={'text'} size={30} size_mobile={20} lineHeight={10}>Precio: ${price}</Title>
       </StyledImgContainer>
       <StyledInformation>
         <Title size={30} size_mobile={20} lineHeight={10}>Modelo: {model}</Title>
-        <br/>
         <Title htmlTag={'p'} size={20} size_mobile={15} lineHeight={30}>{description}</Title>
       </StyledInformation>
     </StyleContainer>

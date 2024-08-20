@@ -5,9 +5,9 @@ export const StyleWrapper = styled.div`
   margin-top: 1%;
   display: flex;
   flex-direction: row;
-  justify-content: initial;
+  justify-content: space-between;
   align-items:center;
-  gap:30px;
+  gap:20px;
   min-width: 90vw;
   height: 70px;
 `;

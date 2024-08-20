@@ -1,13 +1,11 @@
-import styled, { css } from 'styled-components';
-import { mediaQueries } from 'styles/theme';
+import styled from 'styled-components';
+import {mediaQueries} from 'styles/theme';
 
-export const StyleInput = styled.input`
-  ${({ type, theme }) => type !== 'checkbox' && css`
-
-    font-size: 20px;
+export const StyleInput = styled.textarea`
+ font-size: 20px;
     ${mediaQueries.mobile} {
       width:   ${({ $sizeMobile} ) => $sizeMobile}px;;
-      height: 38px;
+      height: 50px;
       border-radius: 10px;
       border: none;
       color: ${({ theme }) => theme.colors.text};
@@ -16,7 +14,7 @@ export const StyleInput = styled.input`
     }
     ${mediaQueries.tablet} {
       width:   ${({ $sizetablet} ) => $sizetablet}px;;
-      height: 38px;
+      height: 50px;
       border-radius: 10px;
       border: none;
       color: ${({ theme }) => theme.colors.text};
@@ -25,7 +23,9 @@ export const StyleInput = styled.input`
     }
     ${mediaQueries.desktop} {
       width:   ${({ $size} ) => $size}px;
-      height: 38px;
+      max-width: ${({ $size} ) => $size}px;;
+      height: 50px;
+      max-height: 80px;
       border-radius: 10px;
       color: ${({ theme }) => theme.colors.text};
       background: ${({ theme }) => theme.colors.input};
@@ -60,11 +60,4 @@ export const StyleInput = styled.input`
       box-shadow: 0 0 0px 1000px ${({ theme }) => theme.colors.input} inset;
       -moz-text-fill-color: ${({ theme }) => theme.colors.text};
     }
-  `}
-
-  ${({ type }) => type === 'checkbox' && css`
-    width: auto;
-    height: auto;
-    margin-bottom: 0;
-  `}
 `;

@@ -3,6 +3,7 @@ import {customStyles, StyleBody, StyleCloseBtn, StyleFooter, StyleTitle} from '.
 import Title from '../Title';
 import Button from '../Button';
 import Loading from '../Loading';
+import { useTheme } from 'styled-components';
 LibModal.setAppElement('*');
 
 
@@ -21,6 +22,26 @@ const Modal = ({
                  ...restProps
 
 }) => {
+  const theme = useTheme();
+
+  const customStyles = {
+    overlay: {
+      background: theme.colors.overlay || '#6e6e65', // Fallback si no hay valor en el tema
+      backdropFilter: 'saturate(10%) blur(1px)',
+      zIndex: 30,
+    },
+    content: {
+      ...contentStyle,
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)',
+      padding: 0,
+    },
+  };
+
 
   return (
     <LibModal style={{ ...customStyles, content: contentStyle }} isOpen={isOpen} {...restProps}>

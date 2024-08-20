@@ -67,7 +67,7 @@ export const useAuth =  () => {
         if (error.response.status === 401) {
           modalInformation('Contraseña incorrecta', 'error');
         } else if (error.response.status === 404) {
-          modalInformation('Usuario no encontrado', 'error');
+          modalInformation('Usuario no encontrado en la base de datos', 'error');
         } else {
           // handle other error codes
         }
