@@ -6,16 +6,21 @@ import Categories from 'pages/Categories';
 import Login from 'pages/Login';
 import Products from 'pages/Products';
 import ProductInformation from 'pages/ProductInformation';
+import ProtectedRouter from './ProtectedRouter';
+import Users from '../pages/Users';
 
 
 const Routes = () => {
   return (
     <BrowserRouter>
-      <ReactRoutes>
-        <Route path={ROUTES.LOGIN.absolutePath} element={<Login />} />
-        <Route path={ROUTES.HOME.absolutePath} element={<Categories />} />
-        <Route path={ROUTES.PRODUCT.path} element={<Products/>} />
-        <Route path={ROUTES.PRODUCT_INFORMATION.path} element={<ProductInformation/>} />
+      <ReactRoutes >
+        <Route element={<ProtectedRouter />}>
+          <Route path={ROUTES.USERS.absolutePath} element={<Users/>} />
+          <Route path={ROUTES.LOGIN.absolutePath} element={<Login />} />
+          <Route path={ROUTES.HOME.absolutePath} element={<Categories />} />
+          <Route path={ROUTES.PRODUCT.path} element={<Products/>} />
+          <Route path={ROUTES.PRODUCT_INFORMATION.path} element={<ProductInformation/>} />
+        </Route>
         <Route path="*" element={<NotFound/>} />
       </ReactRoutes>
     </BrowserRouter>

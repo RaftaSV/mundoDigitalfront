@@ -5,7 +5,7 @@ export const StyleWrapper = styled.div`
   margin-top: 1%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: ${({ $justifyContent }) => $justifyContent};
   align-items:center;
   gap:20px;
   min-width: 90vw;

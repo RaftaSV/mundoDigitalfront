@@ -9,7 +9,7 @@ const CardProducts = ({ image, name,productId, model, price, onEdit,onRemove, ..
   return (
     <Link to={ROUTES.PRODUCT_INFORMATION.absolutePath(productId)}>
     <StyleWrapper>
-      <ButtonEditAndDelete onEdit={onEdit} onRemove={onRemove} />
+      <ButtonEditAndDelete onEdit={onEdit} onRemove={onRemove} visible={true}/>
       <StyleImageContainer>
         <StyleImage src={image}/>
       </StyleImageContainer>

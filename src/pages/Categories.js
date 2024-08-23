@@ -57,7 +57,7 @@ function Categories() {
 
   return (
     <Layout>
-      <HeaderPage title="Categorias" onAdd={onToggle} >
+      <HeaderPage title="Categorias" onAdd={onToggle} validation={true} >
       <HeaderFilter handleSearch={handleSearch} placeHolder={'Busca tu categoria favorita'} useRef={inputRef}/>
       </HeaderPage>
       {loading ? (

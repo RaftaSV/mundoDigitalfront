@@ -45,9 +45,8 @@ const [deleteProduct] = useMutation('/products', {
     if (data?.products) {
       // Extraer los nombres de los productos
       const productName = data.products.map(product => product.category.categoryName);
-      setProducts([...new Set(productName)]); // Usar Set para eliminar duplicados
+      setProducts([...new Set(productName)]);
     } else {
-      console.error('Data no contiene productos o es undefined:', data);
     }
   }, [loading, data]);
 

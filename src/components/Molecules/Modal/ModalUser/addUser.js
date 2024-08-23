@@ -7,13 +7,14 @@ import useMutation from 'hooks/useMutation';
 import React, {useEffect, useState} from 'react';
 import showAlert from 'components/Atoms/SweetAlert';
 import { useFormatPhoneNumber } from 'utils/onlyNumberPhone';
-import Textarea from '../../../Atoms/Textarea';
+import Textarea from 'components/Atoms/Textarea';
 
 const AddUserModal = (
   { isOpen,
     onCancel,
     isUpdate = false,
-    onRefresh
+    onRefresh,
+    isLogin = false
   }) => {
   const [createOrUpdateUser, { loading: loadingAddOrUpdateUser }] = useMutation(isUpdate ? `/Users/` : '/Users', {
     method: isUpdate ? 'put' : 'post', // post = create, put = update
@@ -23,6 +24,8 @@ const AddUserModal = (
   });
 
   const [isLoading, setIsLoading] = useState(false);
+
+  const [value, handleChange, setValue] = useFormatPhoneNumber('');
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -53,7 +56,7 @@ const AddUserModal = (
       width={650}
       isOpen={isOpen}
       onCancel={ () => { onCancel(); setLoad(); } }
-      title={isUpdate ? 'Actualizar Usuario' : 'Agregar Usuario'}
+      title={isUpdate ? 'Actualizar Usuario' : isLogin ? 'Registro de usuario' : 'Registro de Admin'}
       okText={isUpdate ? 'Actualizar' : 'Guardar'}
       isLoading={isLoading}
       okProps={{
@@ -62,19 +65,24 @@ const AddUserModal = (
         loading: loadingAddOrUpdateUser.toString()
       }}
     >
-        <Form id="form-User" method="POST" onSubmit={onSubmit}>
+        <Form id="form-User" method="POST" onSubmit={onSubmit}  autoComplete="new-form">
           <Container>
-          <Title size={17}>Nombre completo</Title>
-          <Input name="fullName" placeholder="Nombre completo" type="text"  required/>
-          <Title size={17}>Correo</Title>
-          <Input name="email" placeholder="usuario@gmail.com" type="text" required/>
-          <Title size={17}>Direccion</Title>
-          <Textarea name="address" placeholder="Direccion" type="email" required/>
-          <Title size={17}>Contraseña</Title>
-          <Input name="password" placeholder="Contraseña" type={showPassword ? 'text' : 'password'}  required={Required}/>
-           <CheckboxContainer>
+            <Title size={17}>Nombre completo</Title>
+            <Input name="fullName" placeholder="Nombre completo" type="text" autoComplete='new-fullName'  required/>
+            <Title size={17}>Correo</Title>
+            <Input name="email" placeholder="usuario@gmail.com" type="mail" autoComplete='new-email' required/>
+            <Title size={17}>Numero de telefono</Title>
+            <Input name="phoneNumber" placeholder="2203-7655" type="text" value={value} onChange={handleChange} autoComplete='new-phoneNumber' required/>
+            <Title size={17}>Direccion</Title>
+            <Textarea name="address" placeholder="Direccion" type="text"  autoComplete='new-address' required/>
+            <Title size={17}>Contraseña</Title>
+            <Input name="password" placeholder="Contraseña" type={showPassword ? 'text' : 'password'}  required={Required}/>
+             <CheckboxContainer>
              <Checkbox type="checkbox" checked={showPassword} onChange={() => setShowPassword(!showPassword)} />
              <TITLE size={17}>Mostrar contraseña</TITLE>
+               {isLogin ? (
+                 <Input name="userTypeId" value={2}placeholder="cliente" type={'hidden'}  required={Required}/>
+               ) : <Input name="userTypeId" value={1}placeholder="Admin" type={'hidden'}  required={Required}/> }
            </CheckboxContainer>
           </Container>
         </Form>

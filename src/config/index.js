@@ -13,6 +13,10 @@ export const ROUTES = {
     path: '/inicio',
     absolutePath: '/inicio'
   },
+  USERS: {
+    path: 'usuarios',
+    absolutePath: '/Usuarios'
+  },
   NOTFOUND: {
     path: 'NotFound',
     absolutePath: '/NotFound'

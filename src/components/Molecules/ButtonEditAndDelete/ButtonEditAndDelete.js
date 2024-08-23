@@ -4,14 +4,15 @@ import PencilFilled from 'components/Atoms/Icons/PencilFilled';
 import SendProduct from 'components/Atoms/Icons/SendProduct';
 import useTokenInformation from 'hooks/useTokenInformation';
 
-const ButtonEditAndDelete = ({ onEdit, onRemove, isInventories = false, showSend }) => {
+const ButtonEditAndDelete = ({ onEdit, onRemove = false, showSend }) => {
   const { userType } = useTokenInformation();
 
   // Condición para mostrar los botones solo si userType es diferente de 'CAJERO'
-  if (userType === 'CAJERO') {
+  if (userType === 'CLIENTE') {
     return null;
   }
 
+  console.log(userType)
   return (
     <StyleWrapper>
       <StyleButtonEdit onClick={(event)=> {
@@ -20,13 +21,13 @@ const ButtonEditAndDelete = ({ onEdit, onRemove, isInventories = false, showSend
       }}>
         <PencilFilled />
       </StyleButtonEdit>
-      <StyleButtonDelete onClick={(event)=>{
+      <StyleButtonDelete onClick={  (event)=>{
         event.preventDefault();
         onRemove();
       }}>
         <Delete />
       </StyleButtonDelete>
-      {isInventories && (
+      {userType==='ADMIN' && (
         <StyleButtonSend onClick={showSend}>
           <SendProduct />
         </StyleButtonSend>

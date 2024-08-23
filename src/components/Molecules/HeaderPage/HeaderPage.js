@@ -11,10 +11,15 @@ import useTokenInformation from 'hooks/useTokenInformation';
 const HeaderPage = ({ title, onAdd = null, children, validation = true }) => {
   const { userType } = useTokenInformation();
 
-  const shouldShowAddButton = onAdd != null && (!validation || (validation && userType !== 'CAJERO'));
+  const shouldShowAddButton = onAdd != null && (!validation || (validation && userType !== 'CLIENTE'));
 
+  const justifyContent = userType !=='ADMIN' ? 'flex-start':'space-between';
+
+  console.log(justifyContent)
   return (
-    <StyleWrapper>
+    <StyleWrapper
+    $justifyContent = {justifyContent}
+    >
       <Title htmlTag="h1" size={38}
       size_mobile={19}
       >

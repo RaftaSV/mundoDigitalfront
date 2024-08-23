@@ -3,6 +3,7 @@ import { useAuth } from 'context/AuthContextCookie';
 
 const useTokenInformation = () => {
   const [firstName, setFirstName] = useState(null);
+  const [userType, setUserType] = useState('CLIENTE');
   const { getCookies } = useAuth();
   const token = getCookies('auth-token');
 
@@ -14,7 +15,7 @@ const useTokenInformation = () => {
         if (decodedToken && decodedToken.User.fullName) {
           const names = decodedToken.User.fullName.split(' ');
           setFirstName(names[0]);
-
+          setUserType(decodedToken.User.UsersType.userType.toString().toLocaleUpperCase());
         }
       } catch (error) {
         console.error('Error decoding token:', error);
@@ -23,7 +24,7 @@ const useTokenInformation = () => {
   }, [token]);
 
   return {
-    firstName
+    firstName, userType
   };
 };
 
