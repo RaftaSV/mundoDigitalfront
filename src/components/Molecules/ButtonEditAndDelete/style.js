@@ -8,6 +8,7 @@ export const StyleWrapper = styled.div`
   width: max-content;
   bottom:0;
   right:0;
+  gap:10px;
 `;
 
 

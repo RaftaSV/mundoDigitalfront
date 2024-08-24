@@ -1,8 +1,9 @@
+import React from 'react';
 import Input from 'components/Atoms/Input';
 import { SearchIcon, StyleWrapper } from './style';
 import Search from 'components/Atoms/Icons/search';
-const HeaderFilter = ({ value, handleSearch, placeHolder ,useRef}) => {
 
+const HeaderFilter = React.forwardRef(({ value, handleSearch, placeHolder }, ref) => {
   return (
     <StyleWrapper>
       <Input
@@ -13,14 +14,13 @@ const HeaderFilter = ({ value, handleSearch, placeHolder ,useRef}) => {
         value={value}
         onChange={handleSearch}
         autoFocus={true}
-        refProp={useRef}
+        ref={ref} // Usar la ref pasada
       />
       <SearchIcon>
         <Search/>
       </SearchIcon>
     </StyleWrapper>
   );
-}
-
+});
 
 export default HeaderFilter;

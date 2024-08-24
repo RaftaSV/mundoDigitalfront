@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const onlyPositiveIntegersWithTwoDecimals = /^[0-9]+(\.[0-9]{0,4})?$/;
+const onlyPositiveIntegersWithTwoDecimals = /^[0-9]+(\.[0-9]{0,2})?$/;
 export const usePositiveIntegersWithTwoDecimals = (initialValue = '') => {
   const [value, setValue] = useState(initialValue);
   const handleChange = (event) => {

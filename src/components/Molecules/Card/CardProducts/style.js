@@ -70,6 +70,7 @@ export const StyleImageContainer = styled.div`
 export const StyleTextInformation = styled.div`
   display: flex;
   flex-direction: column;
+  margin-top: 10px;
   gap: 10px;
 ${mediaQueries.mobile} {
   width: 200px;

@@ -1,7 +1,6 @@
 import Delete from 'components/Atoms/Icons/Delete';
 import { StyleButtonDelete, StyleButtonEdit, StyleButtonSend, StyleWrapper } from './style';
 import PencilFilled from 'components/Atoms/Icons/PencilFilled';
-import SendProduct from 'components/Atoms/Icons/SendProduct';
 import useTokenInformation from 'hooks/useTokenInformation';
 
 const ButtonEditAndDelete = ({ onEdit, onRemove = false, showSend }) => {
@@ -12,7 +11,6 @@ const ButtonEditAndDelete = ({ onEdit, onRemove = false, showSend }) => {
     return null;
   }
 
-  console.log(userType)
   return (
     <StyleWrapper>
       <StyleButtonEdit onClick={(event)=> {
@@ -27,11 +25,6 @@ const ButtonEditAndDelete = ({ onEdit, onRemove = false, showSend }) => {
       }}>
         <Delete />
       </StyleButtonDelete>
-      {userType==='ADMIN' && (
-        <StyleButtonSend onClick={showSend}>
-          <SendProduct />
-        </StyleButtonSend>
-      )}
     </StyleWrapper>
   );
 }

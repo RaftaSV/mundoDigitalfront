@@ -6,11 +6,14 @@ import Loader from 'components/Molecules/Loader';
 import HeaderPage from 'components/Molecules/HeaderPage';
 import HeaderFilter from 'components/Molecules/HeaderFilter';
 import ContainerCard from '../components/template/ContainerCard';
-import { useParams } from 'react-router-dom';
+import {Link, useParams} from 'react-router-dom';
 import CardProducts from 'components/Molecules/Card/CardProducts';
 import ModalProducts from 'components/Molecules/Modal/ModalProducts';
 import modalDelete from '../components/Molecules/Modal/ModalDelete';
 import useMutation from '../hooks/useMutation';
+import Button from '../components/Atoms/Button';
+import Back from '../components/Atoms/Icons/Back';
+import {ROUTES} from '../config';
 
 const Products = () => {
   const { categoryId } = useParams();
@@ -57,29 +60,55 @@ const [deleteProduct] = useMutation('/products', {
   const filteredProducts = data?.products?.filter(product =>
     product.productName.toLowerCase().includes(searchTerm.toLowerCase())
   );
-
   return (
     <Layout>
       {loading ? (
         <Loader />
       ) : (
-      <HeaderPage title={products.join(', ')} onAdd={onToggle}>
-        <HeaderFilter handleSearch={handleSearch} placeHolder={'Busca tu producto favorito'} useRef={inputRef}/>
-      </HeaderPage>
-      )
+        data?.products.length > 0 ? (
+          <HeaderPage
+            title={products.join(', ')}
+            onAdd={onToggle}
+            Back={
+              <Link to={ROUTES.HOME.absolutePath}>
+                <Button color="transparent">
+                  <Back />
+                </Button>
+              </Link>
+            }
+          >
+            <HeaderFilter
+              handleSearch={handleSearch}
+              placeHolder="Busca tu producto favorito"
+              useRef={inputRef}
+            />
+          </HeaderPage>
+        ) : (
+          <HeaderPage
+            Back={
+              <Link to={ROUTES.HOME.absolutePath}>
+                <Button color="transparent">
+                  <Back />
+                </Button>
+              </Link>
+            }
+          />
+        ))
       }
       {loading ? (
         <Loader />
       ) : (
         <ContainerCard widthDesktop={400} widthTablet={370} widthMobile={300}>
           {filteredProducts?.map(product => {
-            const { productId, productName, model, price, urlImage,cost } = product;
+            const { productId, productName, model, price, urlImage, cost, quantity } = product;
             return (
               <CardProducts
                 key={productId}
                 name={productName}
                 model={model}
                 price={price}
+                cost={cost}
+                quantity={quantity}
                 productId={productId}
                 image={urlImage}
                 onEdit={ () => {

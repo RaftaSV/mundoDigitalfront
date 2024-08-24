@@ -41,14 +41,9 @@ export const ChildrenContainer = styled.div`
     width: 50%;
   }
   `;
-export const ButtonRefresh = styled.div`
-  margin-left: 50%;
-  position: absolute;
+export const ButtonReturnAndTitle = styled.div`
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
+  flex-direction: row;
 `;
 export const StyleButton = styled.div`
   display: flex;
@@ -71,22 +66,3 @@ export const StyleButton = styled.div`
 `;
 
 
-export const StyleButtonRefresh = styled.div`
-  display: flex;
-  align-items: center;
-  background: ${({theme}) => theme.colors.primary};
-  border: none;
-  color: ${({theme}) => theme.colors.background};
-  min-width: auto;
-  padding: 0;
-  width: 40px;
-  height: 40px;
-  right: 20px;
-  top: 30px;
-  border-radius: 60px;
-  font-size: 40px;
-  cursor: pointer;
-  &:hover {
-    background: #6f6fab;
-  }
-`;

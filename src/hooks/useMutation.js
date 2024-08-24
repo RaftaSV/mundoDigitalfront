@@ -26,48 +26,53 @@ const useMutation = (url, opts = defaultOptions) => {
     };
   }, [opts]);
 
-  const mutationFunc = useCallback(
-    async (optsFunc = {}, id = '') => {
-      const options = {
-        ...optsResolve,
-        ...optsFunc
-      };
+  if (!url) {
+    console.warn('URL is empty, skipping request');
+  }
 
-      setLoading(true);
+    const mutationFunc = useCallback(
+      async (optsFunc = {}, id = '') => {
+        const options = {
+          ...optsResolve,
+          ...optsFunc
+        };
 
-      try {
-        const token = getCookies('auth-token');
-        const path = `${baseUrl}${url}/${id}`;
-        const config =
-          options.method === 'delete'
-            ? [{ data: options.variables, headers: { ...options.headers, Authorization: token } }]
-            : [options.variables, { headers: { ...options.headers, Authorization: token } }];
+        setLoading(true);
 
-        const response = await axios[options.method](path, ...config);
-        const { data, status } = response;
-        setData(data);
-        setStatus(status);
-        setLoading(false);
+        try {
+          const token = getCookies('auth-token');
+          const path = `${baseUrl}${url}/${id}`;
+          const config =
+            options.method === 'delete'
+              ? [{data: options.variables, headers: {...options.headers, Authorization: token}}]
+              : [options.variables, {headers: {...options.headers, Authorization: token}}];
 
-        if (options.refresh && typeof options.refresh === 'function') {
-          setTimeout(async () => {
-            await options.refresh();
-          }, 500);
+          const response = await axios[options.method](path, ...config);
+          const {data, status} = response;
+          setData(data);
+          setStatus(status);
+          setLoading(false);
+
+          if (options.refresh && typeof options.refresh === 'function') {
+            setTimeout(async () => {
+              await options.refresh();
+            }, 500);
+          }
+
+          return {data, status, loading: false, errors: null};
+        } catch (err) {
+          console.log(err);
+          showAlert('', err.response?.data?.message);
+          setErrors(err);
+          setData(null);
+          setStatus(err.response?.status || null);
+          setLoading(false);
+          return {data: null, status: err.response?.status || null, loading: false, errors: err};
         }
+      },
+      [url, optsResolve]
+    );
 
-        return { data, status, loading: false, errors: null };
-      } catch (err) {
-        console.log(err);
-        showAlert('', err.response?.data?.message);
-        setErrors(err);
-        setData(null);
-        setStatus(err.response?.status || null);
-        setLoading(false);
-        return { data: null, status: err.response?.status || null, loading: false, errors: err };
-      }
-    },
-    [url, optsResolve]
-  );
 
   return [mutationFunc, { loading, data, errors, status }];
 };
