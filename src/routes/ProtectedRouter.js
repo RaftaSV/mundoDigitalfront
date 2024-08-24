@@ -12,7 +12,6 @@ const ProtectedRouter = () => {
     const payload = token.split('.')[1];
     const decoded = atob(payload);
     const userObject = JSON.parse(decoded);
-    console.log(userObject)
     userType = userObject.User.userstype.userType.toString().toLocaleUpperCase();
   } else {
     userType = 'CLIENTE'

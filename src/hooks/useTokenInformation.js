@@ -15,7 +15,7 @@ const useTokenInformation = () => {
         if (decodedToken && decodedToken.User.fullName) {
           const names = decodedToken.User.fullName.split(' ');
           setFirstName(names[0]);
-          setUserType(decodedToken.User.UsersType.userType.toString().toLocaleUpperCase());
+          setUserType(decodedToken.User.userstype.userType.toString().toLocaleUpperCase());
         }
       } catch (error) {
         console.error('Error decoding token:', error);
