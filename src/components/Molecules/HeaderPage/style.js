@@ -2,14 +2,36 @@ import styled from 'styled-components';
 import { mediaQueries } from 'styles/theme';
 
 export const StyleWrapper = styled.div`
-  margin-top: 1%;
-  display: flex;
-  flex-direction: row;
-  justify-content: ${({ $justifyContent }) => $justifyContent};
-  align-items:center;
-  gap:20px;
-  min-width: 90vw;
-  height: 70px;
+  ${mediaQueries.mobile}{
+    margin-top: 1%;
+    display: flex;
+    flex-direction: row;
+    justify-content: ${({ $justifyContent }) => $justifyContent};
+    align-items:center;
+    gap:10px;
+    min-width: 80vw;
+    height: 70px;
+  }
+  ${mediaQueries.tablet}{
+    margin-top: 1%;
+    display: flex;
+    flex-direction: row;
+    justify-content: ${({ $justifyContent }) => $justifyContent};
+    align-items:center;
+    gap:10px;
+    min-width: 90vw;
+    height: 70px;
+  }
+  ${mediaQueries.desktop}{
+    margin-top: 1%;
+    display: flex;
+    flex-direction: row;
+    justify-content: ${({ $justifyContent }) => $justifyContent};
+    align-items:center;
+    gap:10px;
+    min-width: 90vw;
+    height: 70px;
+  }
 `;
 
 export const ButtonContainer = styled.div`
@@ -44,6 +66,10 @@ export const ChildrenContainer = styled.div`
 export const ButtonReturnAndTitle = styled.div`
   display: flex;
   flex-direction: row;
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
+  justify-content: center;
 `;
 export const StyleButton = styled.div`
   display: flex;
