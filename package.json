@@ -25,13 +25,14 @@
     "react-to-print": "^2.15.1",
     "react-use-navigate": "^0.1.1",
     "react-window": "^1.8.10",
+    "serve": "^14.2.3",
     "styled-components": "^5.3.5",
     "sweetalert2": "^11.4.17",
     "sweetalert2-react-content": "^5.0.0",
     "universal-cookie": "^4.0.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "serve -s build",
     "build": "react-scripts build",
     "format": "prettier --write .",
     "eject": "react-scripts eject"
