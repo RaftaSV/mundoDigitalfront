@@ -72,3 +72,36 @@ export const StyleMenuItem = styled(Button)`
   }
 `;
 
+export const StyleMenuItemCart = styled(Button)`
+  ${mediaQueries.desktop} {
+    min-width: auto;
+    padding: 1px 10px;
+    transition: color 0.4s;
+    margin-top: 0;
+    &:hover {
+      opacity: 41;
+      color: ${({ theme }) => theme.colors.secondary};
+    }
+  }
+  ${mediaQueries.tablet} {
+    min-width: auto;
+    padding: 1px 10px;
+    transition: color 0.3s;
+    margin-top: 0;
+    &:hover {
+      opacity: 4;
+      color: ${({ theme }) => theme.colors.secondary};
+    }
+  }
+  ${mediaQueries.mobile} {
+    min-width: auto;
+    padding: 1px 10px;
+    transition: color 0.4s;
+    margin-top: 0;
+    &:hover {
+      opacity: 4;
+      color: ${({ theme }) => theme.colors.secondary};
+    }
+  }
+`;
+

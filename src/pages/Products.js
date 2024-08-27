@@ -85,6 +85,7 @@ const [deleteProduct] = useMutation('/products', {
           </HeaderPage>
         ) : (
           <HeaderPage
+            onAdd={onToggle}
             Back={
               <Link to={ROUTES.HOME.absolutePath}>
                 <Button color="transparent">

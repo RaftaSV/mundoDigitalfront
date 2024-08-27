@@ -51,14 +51,14 @@ const Users = () => {
           widthDesktop={300}
         >
           {data?.map((user) => {
-            const { userId, fullName,address, email, phoneNumber, UsersType, status } = user;
+            const { userId, fullName,address, email, phoneNumber, userstype, status } = user;
             return (
               <CardUser
                 key={userId}
                 name={fullName}
                 email={email}
                 tel={phoneNumber}
-                userType={UsersType.userType}
+                userType={userstype.userType}
                 address={address}
                 onEdit={() => onEdit(user)}
                 onRemove={() => {

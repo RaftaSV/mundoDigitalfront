@@ -3,7 +3,8 @@ import SunFilled from 'components/Atoms/Icons/SunFilled';
 import MoonFilled from 'components/Atoms/Icons/MoonFilled';
 import Exit from 'components/Atoms/Icons/Exit';
 import Login from 'components/Atoms/Icons/Login';
-import {StyleMenuItem, StyleMenuNavbar, StyleText} from './style';
+import Cart from 'components/Atoms/Icons/Cart'
+import {StyleMenuItem, StyleMenuItemCart, StyleMenuNavbar, StyleText} from './style';
 import { useAuth } from 'context/AuthContextCookie';
 import {ROUTES} from 'config';
 import Title from 'components/Atoms/Title';
@@ -44,6 +45,13 @@ const {firstName} = useTokenInformation();
         {!isLoginPage && authToken ? <Exit /> : null}
         {!isLoginPage && !authToken ? <Login /> : null}
       </StyleMenuItem>
+      <StyleMenuItemCart
+        color="transparent"
+        labelColor="text"
+        style={{ fontSize: 18 }}
+      >
+        {!isLoginPage  ? <Cart /> : null}
+      </StyleMenuItemCart>
       <StyleMenuItem
         color="transparent"
         labelColor="text"
