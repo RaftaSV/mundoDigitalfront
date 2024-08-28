@@ -67,9 +67,9 @@ function Categories() {
         <Loader />
       ) : (
         <ContainerCard
-          widthDesktop={270}
-          widthTablet={250}
-          widthMobile={200}
+          widthDesktop={190}
+          widthTablet={190}
+          widthMobile={170}
         >
           {filteredCategories?.map((Category) => {
             const {categoryId, categoryName, urlImage} = Category;

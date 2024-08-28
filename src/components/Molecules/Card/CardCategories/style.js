@@ -9,7 +9,7 @@ export const StyleWrapper = styled.div`
   gap:10px;
   align-items: center;
   ${mediaQueries.mobile} {
-    width: 190px;
+    width: 170px;
     height: 110px;
     display: flex;
     border-radius: 5px;
@@ -17,7 +17,7 @@ export const StyleWrapper = styled.div`
     background: ${({ theme }) => theme.colors.bgCard};
   }
   ${mediaQueries.tablet} {
-    width: 190px;
+    width: 170px;
     height: 150px;
     display: flex;
     border-radius: 10px;
