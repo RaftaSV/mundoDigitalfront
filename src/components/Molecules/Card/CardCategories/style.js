@@ -2,28 +2,31 @@ import styled from 'styled-components';
 import {mediaQueries} from 'styles/theme';
 
 export const StyleWrapper = styled.div`
-  border: 2px solid ${({theme}) => theme.colors.borderInput};
+  border: 1px solid ${({theme}) => theme.colors.borderInput};
+  display: flex;
+  flex-direction: column;
   margin-top: 20px;
   gap:10px;
+  align-items: center;
   ${mediaQueries.mobile} {
-    width: 20rn 0px;
+    width: 190px;
     height: 110px;
     display: flex;
-    border-radius: 10px;
+    border-radius: 5px;
     position: relative;
     background: ${({ theme }) => theme.colors.bgCard};
   }
   ${mediaQueries.tablet} {
-    width: 250px;
-    height: 110px;
+    width: 190px;
+    height: 150px;
     display: flex;
     border-radius: 10px;
     position: relative;
     background: ${({ theme }) => theme.colors.bgCard};
   }
   ${mediaQueries.desktop} {
-    width: 270px;
-    height: 110px;
+    width: 190px;
+    height: 170px;
     display: flex;
     border-radius: 10px;
     position: relative;

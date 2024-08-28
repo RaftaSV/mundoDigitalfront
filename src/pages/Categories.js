@@ -10,6 +10,7 @@ import CardCategories from 'components/Molecules/Card/CardCategories';
 import modalDelete from 'components/Molecules/Modal/ModalDelete';
 import HeaderFilter from 'components/Molecules/HeaderFilter';
 import ContainerCard from '../components/template/ContainerCard';
+import CardPurchases from '../components/Atoms/CardPurchases';
 
 function Categories() {
   const { data, loading, refresh } = useQuery('/Categories');
@@ -57,9 +58,11 @@ function Categories() {
 
   return (
     <Layout>
-      <HeaderPage title="Categorias" onAdd={onToggle} validation={true} >
+      <CardPurchases/>
+      <HeaderPage onAdd={onToggle} validation={true} >
       <HeaderFilter handleSearch={handleSearch} placeHolder={'Busca tu categoria favorita'} useRef={inputRef}/>
       </HeaderPage>
+
       {loading ? (
         <Loader />
       ) : (
