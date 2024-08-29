@@ -86,9 +86,10 @@ ${mediaQueries.desktop}{
 `
 
 export const StyledImg = styled.img`
+  filter: drop-shadow(${({ theme }) => theme.colors.boxShadow});
 ${mediaQueries.mobile}{
-  width: 200px;
-  height: 145px;
+  width: 230px;
+  height: 200px;
   border: 1px solid ${({theme})=> theme.colors.borderInput};
   border-radius: 10px;
 }

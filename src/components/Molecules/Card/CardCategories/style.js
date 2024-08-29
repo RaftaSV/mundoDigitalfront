@@ -37,7 +37,8 @@ export const StyleWrapper = styled.div`
 
 
 export const StyleImage = styled.img`
- ${mediaQueries.mobile} {
+  filter: drop-shadow(${({ theme }) => theme.colors.boxShadow});
+  ${mediaQueries.mobile} {
    width: 80px;
    height: 75px;
 

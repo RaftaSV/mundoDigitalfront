@@ -18,7 +18,7 @@ const colorsLight = {
   bgModal: '#ffffff', // Fondo blanco del modal
   input: '#e1e1e1', // Color de entrada gris claro
   shadowInput: 'rgba(231,225,225,0.1)', // Sombra de entrada muy suave
-  boxShadow: '1em 1em 2em rgba(30, 90, 90, 0.6)', // Sombra muy suave
+  boxShadow: '1em 1em 2em rgba(44,158,158,0.74)', // Sombra muy suave
   borderInput: '#b7a0a0', // Borde de entrada gris
   price: 'rgba(82,122,87,0.34)', // Precio color crema
   border_animation: 'linear-gradient(var(--angle), #000027, white, white, #000027);', // Animación del borde
@@ -47,7 +47,7 @@ const colorsDark = {
   bgModal: '#353d45',
   input: 'rgba(117,117,117,0.7)',
   shadowInput: 'rgba(0,0,0,0.1)',
-  boxShadow: '1em 1em 2em rgba(10, 90, 90, 0.6)',
+  boxShadow: '1em 2em 1em rgba(10, 90, 90, 0.6)',
   borderInput: '#fafafa',
   price: '#517453',
   border_animation: 'linear-gradient(var(--angle), #000027, white, white, #000027);',

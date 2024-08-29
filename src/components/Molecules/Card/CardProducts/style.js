@@ -34,11 +34,12 @@ export const StyleWrapper = styled.div`
 
 
 export const StyleImage = styled.img`
-  margin-top: 2px;
   margin-left: 2px;
+  display: flex;
+  filter: drop-shadow(${({ theme }) => theme.colors.boxShadow});
   ${mediaQueries.mobile} {
    width: 100px;
-   height: 85px;
+   height: 75px;
 
  }
   ${mediaQueries.tablet} {
@@ -52,7 +53,9 @@ export const StyleImage = styled.img`
 `;
 
 export const StyleImageContainer = styled.div`
- ${mediaQueries.mobile} {
+  display: flex;
+  align-items: center;
+  ${mediaQueries.mobile} {
    width: 100px;
    height: 100%;
 
