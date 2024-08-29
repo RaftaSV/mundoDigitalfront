@@ -23,7 +23,7 @@ export const StyleWrapper = styled.div`
   }
   ${mediaQueries.desktop} {
     width: 400px;
-    height: 130px;
+    height: 140px;
     display: flex;
     border-radius: 10px;
     position: relative;
