@@ -13,7 +13,7 @@ import useTokenInformation from 'hooks/useTokenInformation';
 import CartShowCount from '../CartShowCount';
 
 
-const MenuNavbar = () => {
+const MenuNavbar = ({refresh}) => {
   const { logout, getCookies, removeCookies } = useAuth();
   const { themeToggle, theme } = useAppTheme();
 
@@ -50,7 +50,7 @@ const {firstName} = useTokenInformation();
         labelColor="text"
         style={{ fontSize: 14 }}
       >
-        {!isLoginPage && authToken ? <CartShowCount/> : null}
+        {!isLoginPage && authToken ? <CartShowCount /> : null}
       </StyleMenuItemCart>
       <StyleMenuItem
         color="transparent"

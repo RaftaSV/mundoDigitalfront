@@ -3,7 +3,7 @@ import {StyleNavbar, StyleImage, StyleMenuNavbar, StyleButtonBurgerAndImage} fro
 
 
 
-const Navbar = () => {
+const Navbar = ({refresh}) => {
 
 
   return (
@@ -11,7 +11,7 @@ const Navbar = () => {
       <StyleButtonBurgerAndImage>
       </StyleButtonBurgerAndImage>
       <StyleMenuNavbar>
-        <MenuNavbar />
+        <MenuNavbar refresh={refresh}/>
       </StyleMenuNavbar>
     </StyleNavbar>
   );

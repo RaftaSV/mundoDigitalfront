@@ -13,7 +13,7 @@ const CardCategories = ({ image, name,onEdit,onRemove,categoryId, ...restProps})
     <StyleWrapper>
       <ButtonEditAndDelete onEdit={onEdit} onRemove={onRemove}/>
       <StyleImage src={image}/>
-      <Title  htmlTag={'p'} size={25} size_mobile={18}>{name}</Title>
+      <Title  htmlTag={'p'} size={20} size_mobile={15}>{name}</Title>
     </StyleWrapper>
     </Link>
   );

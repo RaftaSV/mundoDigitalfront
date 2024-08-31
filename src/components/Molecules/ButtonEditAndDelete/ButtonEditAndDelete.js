@@ -2,7 +2,7 @@ import Delete from 'components/Atoms/Icons/Delete';
 import { StyleButtonDelete, StyleButtonEdit, StyleButtonSend, StyleWrapper } from './style';
 import PencilFilled from 'components/Atoms/Icons/PencilFilled';
 import useTokenInformation from 'hooks/useTokenInformation';
-
+import {Trash, Edit} from 'lucide-react'
 const ButtonEditAndDelete = ({ onEdit, onRemove = false, showSend }) => {
   const { userType } = useTokenInformation();
 
@@ -17,13 +17,13 @@ const ButtonEditAndDelete = ({ onEdit, onRemove = false, showSend }) => {
         event.preventDefault();
         onEdit();
       }}>
-        <PencilFilled />
+        <Edit />
       </StyleButtonEdit>
       <StyleButtonDelete onClick={  (event)=>{
         event.preventDefault();
         onRemove();
       }}>
-        <Delete />
+        <Trash />
       </StyleButtonDelete>
     </StyleWrapper>
   );

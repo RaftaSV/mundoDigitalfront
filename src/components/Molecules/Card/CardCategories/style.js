@@ -5,11 +5,9 @@ export const StyleWrapper = styled.div`
   border: 1px solid ${({theme}) => theme.colors.borderInput};
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
-  gap:10px;
   align-items: center;
   ${mediaQueries.mobile} {
-    width: 170px;
+    width: 150px;
     height: 110px;
     display: flex;
     border-radius: 5px;
@@ -41,7 +39,6 @@ export const StyleImage = styled.img`
   ${mediaQueries.mobile} {
    width: 80px;
    height: 75px;
-
  }
 
   ${mediaQueries.tablet} {

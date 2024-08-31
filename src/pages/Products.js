@@ -1,6 +1,6 @@
 import useModal from 'hooks/useModal';
 import useQuery from 'hooks/useQuery';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Layout from 'components/Organisms/Layout';
 import Loader from 'components/Molecules/Loader';
 import HeaderPage from 'components/Molecules/HeaderPage';
@@ -96,7 +96,7 @@ const [deleteProduct] = useMutation('/products', {
       {loading ? (
         <Loader />
       ) : (
-        <ContainerCard widthDesktop={400} widthTablet={370} widthMobile={300}>
+        <ContainerCard widthDesktop={350} widthTablet={330} widthMobile={260}>
           {filteredProducts?.map(product => {
             const { productId, productName, model, price, urlImage, cost, quantity } = product;
             return (

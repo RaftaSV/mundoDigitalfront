@@ -22,7 +22,7 @@ export const StyleWrapper = styled.div`
   }
   ${mediaQueries.desktop} {
     min-width: 100%;
-    height: 85vh;
+    height: max-content;
     min-height: 70vh;
     display: flex;
     flex-direction: column;
@@ -43,38 +43,43 @@ export const StyleContainer = styled.div`
     min-height: 83vh;
     display: flex;
     flex-direction: row;
-    gap:50px;
+    gap:20px;
   }
   ${mediaQueries.desktop} {
-    min-width: 95vw;
-    min-height: 83vh;
     display: flex;
+    width: 100%;
+    min-width: 60vw;
+    min-height: 60vh;
+    height: 400px;
     flex-direction: row;
+    gap: 10px;
   }`;
 
 export const StyleText = styled.div`
    display: flex;
    align-items: center;
    justify-content: center;
+  text-align: initial;
    width: 98vw;
    height: 50px;
 `;
 
 export const StyledImgContainer = styled.div`
-${mediaQueries.mobile}{
+  align-items: center;
+  ${mediaQueries.mobile}{
   width: 100%;
   height: max-content;
   display:flex;
   flex-direction: column;
-  align-items: center;
   gap:20px;
 }
 ${mediaQueries.tablet}{
-  width: 31%;
+  width: 39%;
   height: 84vh;
   display:flex;
   flex-direction: column;
   gap:20px;
+
 }
 ${mediaQueries.desktop}{
   width: 31%;
@@ -100,13 +105,48 @@ ${mediaQueries.tablet}{
   border-radius: 10px;
 }
 ${mediaQueries.desktop}{
-  width: 400px;
+  width: auto;
   height: 300px;
   border: 1px solid ${({theme})=> theme.colors.borderInput};
   border-radius: 10px;
 }
 `
 
+export const StyledAddCart = styled.div`
+  cursor: pointer;
+  background: ${({theme})=> theme.colors.info};
+  ${mediaQueries.mobile} {
+    display: flex;
+    flex-direction: row;
+    width: 200px;
+    border-radius: 10px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  ${mediaQueries.tablet} {
+    display: flex;
+    flex-direction: row;
+    width: 230px;
+    border-radius: 10px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  ${mediaQueries.desktop} {
+    display: flex;
+    flex-direction: row;
+    width: 200px;
+    border-radius: 10px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+`
 
 export const StyledInformation = styled.div`
 ${mediaQueries.mobile}{
@@ -121,7 +161,7 @@ ${mediaQueries.mobile}{
   gap:20px;
 }
 ${mediaQueries.tablet}{
-  width: 70%;
+  width: 58%;
   display: flex;
   flex-direction: column;
   height: 84vh;
@@ -129,11 +169,12 @@ ${mediaQueries.tablet}{
   gap:20px;
 }
 ${mediaQueries.desktop}{
-  width: 70%;
+  width: auto;
+  min-width: 60%;
   display: flex;
   flex-direction: column;
   height: 84vh;
   margin-top:30px;
   gap:20px;
-}
+ }
 `

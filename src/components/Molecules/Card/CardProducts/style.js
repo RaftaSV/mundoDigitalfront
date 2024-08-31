@@ -6,23 +6,23 @@ export const StyleWrapper = styled.div`
   gap:10px;
   border: 2px solid ${({theme}) => theme.colors.borderInput};
   ${mediaQueries.mobile} {
-    width: 300px;
-    height: 130px;
+    width: 260px;
+    height: 150px;
     display: flex;
     border-radius: 10px;
     position: relative;
     background: ${({ theme }) => theme.colors.bgCard};
   }
   ${mediaQueries.tablet} {
-    width: 370px;
-    height: 130px;
+    width: 330px;
+    height: 155px;
     display: flex;
     border-radius: 10px;
     position: relative;
     background:${({ theme }) => theme.colors.bgCard};
   }
   ${mediaQueries.desktop} {
-    width: 400px;
+    width: 350px;
     height: 140px;
     display: flex;
     border-radius: 10px;
@@ -30,6 +30,17 @@ export const StyleWrapper = styled.div`
     background: ${({ theme }) => theme.colors.bgCard};
   }
 `;
+
+export const StyledRow = styled.div`
+  display: flex;
+  flex-direction: row;
+  color: ${({theme}) => theme.colors.borderInput};
+  font-size: 10px;
+  align-content: center;
+  align-items: center;
+  gap: 5px;
+}
+`
 
 
 

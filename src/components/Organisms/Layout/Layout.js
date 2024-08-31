@@ -2,10 +2,10 @@
 import Navbar from 'components/Organisms/Navbar';
 import {StyleWrapper, Content} from './style';
 
-const Layout = ({ children }) => {
+const Layout = ({ children, refresh }) => {
   return (
     <StyleWrapper className="App">
-      <Navbar />
+      <Navbar refresh={refresh}/>
       <Content>
       {children}
       </Content>

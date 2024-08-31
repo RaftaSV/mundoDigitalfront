@@ -1,6 +1,6 @@
 import useModal from 'hooks/useModal';
 import useQuery from 'hooks/useQuery';
-import {useEffect, useRef, useState} from 'react';
+import {useEffect, useState} from 'react';
 import Layout from 'components/Organisms/Layout';
 import Loader from 'components/Molecules/Loader';
 import HeaderPage from 'components/Molecules/HeaderPage';
@@ -67,7 +67,7 @@ function Categories() {
         <ContainerCard
           widthDesktop={190}
           widthTablet={190}
-          widthMobile={170}
+          widthMobile={160}
         >
           {filteredCategories?.map((Category) => {
             const {categoryId, categoryName, urlImage} = Category;

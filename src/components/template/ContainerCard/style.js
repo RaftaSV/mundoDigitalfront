@@ -3,6 +3,7 @@ import { mediaQueries } from '../../../styles/theme';
 
 export const Container = styled.div`
   gap: 20px;
+  margin-top: 20px;
   ${mediaQueries.mobile} {
     width: 100%;
     justify-content: center;
@@ -22,9 +23,9 @@ export const Container = styled.div`
   }
 
   ${mediaQueries.desktop} {
-    min-height: 1vh;
-    max-height: 95vh;
-    width: 98%;
+    min-height: 80vh;
+    max-height: 100%;
+    width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(${({ $widthDesktop }) => $widthDesktop}px, 0px));
     gap: 20px;

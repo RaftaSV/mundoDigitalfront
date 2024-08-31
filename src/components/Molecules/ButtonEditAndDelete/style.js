@@ -4,40 +4,39 @@ import Button from 'components/Atoms/Button';
 export const StyleWrapper = styled.div`
   position: absolute;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   width: max-content;
   bottom:0;
   right:0;
-  gap:10px;
 `;
 
 
 export const StyleButtonEdit = styled(Button)`
   cursor: pointer;
   display: flex;
-  background:${({ theme }) => theme.colors.success};
-  color:${({ theme }) => theme.colors.white};
+  background: ${({ theme }) => theme.colors.transparent};
+  color:${({ theme }) => theme.colors.success};
   min-width: 40px;
   padding: 0;
   width:40px;
   height: 40px;
-  border-radius: 50px;
-  font-size: 25px;
   justify-content: center;
-
+  align-items: center;
+  font-size: 10px;
 `;
 
 export const StyleButtonDelete = styled(Button)`
-    cursor: pointer;
-    display: flex;
-    background:${({ theme }) => theme.colors.error};
-    color:${({ theme }) => theme.colors.white};
-    min-width: 40px;
-    padding: 0;
-    width:40px;
-    height: 40px;
-    border-radius: 50px;
-    font-size: 37px;
+  cursor: pointer;
+  display: flex;
+  background: ${({ theme }) => theme.colors.transparent};
+  color:${({ theme }) => theme.colors.error};
+  min-width: 40px;
+  padding: 0;
+  width:40px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  font-size: 10px;
 `;
 
 export const StyleButtonSend = styled(Button)`

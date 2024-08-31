@@ -4,7 +4,6 @@ import Cookies from 'universal-cookie';
 import {ROUTES} from '../config';
 import {useNavigate} from 'react-router-dom';
 import modalInformation from 'components/Molecules/Modal/ModalInformation';
-import {light} from '@mui/material/styles/createPalette';
 
 const AuthContext = React.createContext();
 const baseUrl = `${process.env.REACT_APP_API_URL}/v1`;

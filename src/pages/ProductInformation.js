@@ -13,6 +13,7 @@ const ProductInformation = () => {
   const { productId } = useParams();
   const [url, setUrl] = useState('');
   const { data, loading } = useQuery(url);
+  const [refresh, setRefresh] = useState(false);
 
   useEffect(() => {
     document.title=('informacion')
@@ -23,10 +24,11 @@ const ProductInformation = () => {
     }
   }, []);
 
+
   const product = data?.data;
 
   return (
-    <Layout>
+    <Layout refresh={refresh}>
       <HeaderPage title={'Regresar'} Back={
         <Link to={ product?.categoryId !== undefined ? ROUTES.PRODUCT.absolutePath(product?.categoryId) : ROUTES.HOME.absolutePath}>
           <Button color={'transparent'}>

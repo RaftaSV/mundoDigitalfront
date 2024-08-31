@@ -1,12 +1,11 @@
 import Modal from 'components/Atoms/ModalCart';
-import {StyleWrapper, StyledCard, StyledImg, StyledText, StyledPrice, StyledButton} from './style';
-import { useAuth } from 'context/AuthContextCookie';
+import { StyleWrapper, StyledCard, StyledImg, StyledText, StyledPrice, StyledButton } from './style';
 import Title from 'components/Atoms/Title';
-import {Trash2, DollarSign} from 'lucide-react';
+import { Trash2, DollarSign } from 'lucide-react';
 
-const ModalCart = ({ isOpen, onCancel }) => {
-  const { getCookies } = useAuth();
-  const cart = getCookies('cart');
+const ModalCart = ({ isOpen, onCancel, cart }) => {
+
+  const cartItems = cart?.cartUser || [];
 
   return (
     <Modal
@@ -15,9 +14,10 @@ const ModalCart = ({ isOpen, onCancel }) => {
       onCancel={onCancel}
     >
       <StyleWrapper>
-        {cart && cart.length > 0 ? (
-          cart.map((item) => {
-            const { cartId, product } = item;
+        {cartItems.length > 0 ? (
+          cartItems.map((item) => {
+            const { cartId, product } = item; // Destructura `cartId` y `product`
+
             return (
               <StyledCard key={cartId}>
                 <StyledImg src={product.urlImage} alt={product.productName || 'Product Image'} />
@@ -28,21 +28,20 @@ const ModalCart = ({ isOpen, onCancel }) => {
                   <Title htmlTag="p" size={17} size_mobile={13}>${product.price}</Title>
                 </StyledPrice>
                 <StyledButton>
-                  <Trash2 color={'red'}/>
+                  <Trash2 color={'red'} />
                 </StyledButton>
                 <StyledButton>
-                  <DollarSign color={'green'}/>
+                  <DollarSign color={'green'} />
                 </StyledButton>
               </StyledCard>
             );
           })
-        ) :
-          null
-        }
+        ) : (
+          <div>No items in cart.</div> // Muestra un mensaje si el carrito está vacío
+        )}
       </StyleWrapper>
     </Modal>
   );
-
 };
 
 export default ModalCart;
