@@ -1,5 +1,5 @@
 import Loading from 'components/Atoms/Loading';
-import { StyleWrapper } from './style';
+import { StyleWrapper } from './styled';
 
 const Loader = () => {
   return (

@@ -19,7 +19,6 @@ const Products = () => {
   const { categoryId } = useParams();
   const { data, loading, refresh } = useQuery(`/Products/${categoryId}`);
   const [searchTerm, setSearchTerm] = useState('');
-  const inputRef = useRef(null);
   const [products, setProducts] = useState([]);
   const {visible: isUpdate, onHidden, onVisible} = useModal();
   const {visible, onToggle} = useModal();
@@ -35,7 +34,6 @@ const onClose = () => {
   onHidden();
   setProductEdit(null);
   onToggle();
-  inputRef.current.focus();
 }
 const [deleteProduct] = useMutation('/products', {
   refresh,
@@ -80,7 +78,6 @@ const [deleteProduct] = useMutation('/products', {
             <HeaderFilter
               handleSearch={handleSearch}
               placeHolder="Busca tu producto favorito"
-              useRef={inputRef}
             />
           </HeaderPage>
         ) : (

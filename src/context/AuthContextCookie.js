@@ -3,7 +3,8 @@ import axios from 'axios';
 import Cookies from 'universal-cookie';
 import {ROUTES} from '../config';
 import {useNavigate} from 'react-router-dom';
-import modalInformation from '../components/Molecules/Modal/ModalInformation';
+import modalInformation from 'components/Molecules/Modal/ModalInformation';
+import {light} from '@mui/material/styles/createPalette';
 
 const AuthContext = React.createContext();
 const baseUrl = `${process.env.REACT_APP_API_URL}/v1`;
@@ -13,8 +14,10 @@ export const useAuth =  () => {
   const cookies = new Cookies();
   const token = cookies.get('auth-token');
   const navigate = useNavigate();
+
   const removeCookies = () => {
     cookies.remove('auth-token', { path: '/' });
+    cookies.remove('cart', { path: '/' });
     setIsAuthenticated(false);
   };
 
@@ -57,8 +60,10 @@ export const useAuth =  () => {
         password: pass,
       })
       .then((response) => {
-       const token = response.data.token;
+        const token = response.data.token;
+        const data = response.data.data;
         cookies.set('auth-token', token, { path: '/', maxAge: 86400});
+        cookies.set('cart', data,{path: '/', maxAge: 86400});
         axios.defaults.headers.common['Authorization'] = `${token}`;
         setIsAuthenticated(true);
          navigate(ROUTES.HOME.absolutePath)

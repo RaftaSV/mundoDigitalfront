@@ -18,7 +18,6 @@ function Categories() {
   const [CategoryEdit, setCategoryEdit] = useState(null);
   const { visible: isUpdate, onHidden, onVisible, } = useModal();
   const [searchTerm, setSearchTerm] = useState('');
-  const  inputRef = useRef(null);
 
   const [deleteCategory] = useMutation(`/Categories`, {
     refresh,
@@ -38,7 +37,6 @@ function Categories() {
     onHidden();
     setCategoryEdit(null);
     onToggle();
-    inputRef.current.focus();
   };
 
 
@@ -60,7 +58,7 @@ function Categories() {
     <Layout>
       <CardPurchases/>
       <HeaderPage onAdd={onToggle} validation={true} >
-      <HeaderFilter handleSearch={handleSearch} placeHolder={'Busca tu categoria favorita'} useRef={inputRef}/>
+      <HeaderFilter handleSearch={handleSearch} placeHolder={'Busca tu categoria favorita'}/>
       </HeaderPage>
 
       {loading ? (

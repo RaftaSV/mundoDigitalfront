@@ -2,7 +2,6 @@ import LoginMolecule from 'components/Molecules/Login/Login';
 import LayoutLogin from 'components/Organisms/Layout';
 import { AddUserModal } from 'components/Molecules/Modal/ModalUser';
 import useModal from 'hooks/useModal';
-import Button from '../components/Atoms/Button';
 
 function Login() {
   const { visible: visibleUser, onToggle: onToggleUser } = useModal();

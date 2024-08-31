@@ -3,14 +3,14 @@ import SunFilled from 'components/Atoms/Icons/SunFilled';
 import MoonFilled from 'components/Atoms/Icons/MoonFilled';
 import Exit from 'components/Atoms/Icons/Exit';
 import Login from 'components/Atoms/Icons/Login';
-import Cart from 'components/Atoms/Icons/Cart'
-import {StyleMenuItem, StyleMenuItemCart, StyleMenuNavbar, StyleText} from './style';
+import {StyleMenuItem, StyleMenuItemCart, StyleMenuNavbar, StyleText} from './styled';
 import { useAuth } from 'context/AuthContextCookie';
 import {ROUTES} from 'config';
 import Title from 'components/Atoms/Title';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import useTokenInformation from 'hooks/useTokenInformation';
+import CartShowCount from '../CartShowCount';
 
 
 const MenuNavbar = () => {
@@ -39,7 +39,7 @@ const {firstName} = useTokenInformation();
       <StyleMenuItem
         color="transparent"
         labelColor="text"
-        style={{ fontSize: 18 }}
+        style={{ fontSize: 16 }}
         onClick={handleLogout}
       >
         {!isLoginPage && authToken ? <Exit /> : null}
@@ -48,15 +48,15 @@ const {firstName} = useTokenInformation();
       <StyleMenuItemCart
         color="transparent"
         labelColor="text"
-        style={{ fontSize: 18 }}
+        style={{ fontSize: 14 }}
       >
-        {!isLoginPage  ? <Cart /> : null}
+        {!isLoginPage && authToken ? <CartShowCount/> : null}
       </StyleMenuItemCart>
       <StyleMenuItem
         color="transparent"
         labelColor="text"
         onClick={themeToggle}
-        style={{ fontSize: 20 }}
+        style={{ fontSize: 16}}
       >
         {theme === 'light' ? <MoonFilled /> : <SunFilled />}
       </StyleMenuItem>

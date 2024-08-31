@@ -27,7 +27,7 @@ const ProductInformation = () => {
 
   return (
     <Layout>
-      <HeaderPage title={product?.productName} Back={
+      <HeaderPage title={'Regresar'} Back={
         <Link to={ product?.categoryId !== undefined ? ROUTES.PRODUCT.absolutePath(product?.categoryId) : ROUTES.HOME.absolutePath}>
           <Button color={'transparent'}>
             <Back/>
@@ -41,6 +41,7 @@ const ProductInformation = () => {
           {product ? (
             <CardProductInformation
               key={product.productId}
+              productId={product.productId}
               productName={product.productName}
               model={product.model}
               urlImage={product.urlImage}

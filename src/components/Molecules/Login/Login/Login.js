@@ -14,7 +14,7 @@ import {
   StyleShowPassword,
   Checkbox,
   TITLE,
-} from './style';
+} from './styled';
 
 const SignInForm = ({onClickUser}) => {
   const { login } = useAuth();

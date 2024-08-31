@@ -3,7 +3,7 @@ import Button from '../Button';
 
 export const StyleBody = styled.div`
   position: relative;
-  min-width: 350px;
+  min-width: 200px;
   padding: 10px;
   background-color: ${({ theme }) => theme.colors.bgModal};
   display: flex;
@@ -12,7 +12,7 @@ export const StyleBody = styled.div`
   z-index: ${({ theme }) => theme.zIndex.modal} ;
   overflow-y: auto;
   @media screen and (min-width: 768px) {
-    min-width: 480px;
+    min-width: 200px;
     width: ${({ $width }) => $width}px;
     justify-content: space-between;
     overflow: hidden;

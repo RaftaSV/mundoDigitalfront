@@ -5,9 +5,7 @@ export const StyleNavbar = styled.nav`
   display: flex;
   top: 1%;
   right: 0;
-  display: flex;
   align-items: center;
-  width: 100%;
   border-radius: 10px;
   padding: 0 20px;
   height: 40px;

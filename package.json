@@ -11,6 +11,7 @@
     "chartjs-plugin-datalabels": "^2.2.0",
     "debounce": "^2.1.0",
     "lodash": "^4.17.21",
+    "lucide-react": "^0.436.0",
     "moment": "^2.29.4",
     "moment-timezone": "^0.5.45",
     "public": "^0.1.5",
@@ -32,7 +33,7 @@
     "universal-cookie": "^4.0.4"
   },
   "scripts": {
-    "start": "serve -s build",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "format": "prettier --write .",
     "eject": "react-scripts eject"
