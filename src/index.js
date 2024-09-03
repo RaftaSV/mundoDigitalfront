@@ -1,6 +1,7 @@
 import React, { memo } from 'react';
 import ReactDOM from 'react-dom/client';
 import { ThemeProvider } from 'styled-components';
+import {CartProvider} from 'context/CartContext';
 
 import GlobalStyle from 'styles/global';
 import { themeLight, themeDark } from 'styles/theme';
@@ -22,7 +23,9 @@ const AppRenderTheme = memo(() => {
 const App = () => {
   return (
     <AppThemeProvider>
-      <AppRenderTheme />
+      <CartProvider>
+        <AppRenderTheme />
+      </CartProvider>
     </AppThemeProvider>
   );
 };

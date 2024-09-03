@@ -2,10 +2,29 @@ import Modal from 'components/Atoms/ModalCart';
 import { StyleWrapper, StyledCard, StyledImg, StyledText, StyledPrice, StyledButton } from './style';
 import Title from 'components/Atoms/Title';
 import { Trash2, DollarSign } from 'lucide-react';
+import useMutation from 'hooks/useMutation';
+import showAlert from 'components/Atoms/SweetAlert';
+import {useCart} from 'context/CartContext';
 
 const ModalCart = ({ isOpen, onCancel, cart }) => {
 
   const cartItems = cart?.cartUser || [];
+  const {updateCart} = useCart();
+
+  const [deleteCart] = useMutation(`/carts`, {
+      method: 'delete'
+    }
+  );
+
+  const deleteCarts = async( cartId) => {
+    const result = await deleteCart({}, cartId);
+    if (result?.data) {
+      showAlert('', result?.data.message || 'Listo', 1000);
+    }
+    setTimeout( () => {
+      updateCart(result.data.cartUser)
+    }, 500);
+  }
 
   return (
     <Modal
@@ -27,7 +46,10 @@ const ModalCart = ({ isOpen, onCancel, cart }) => {
                 <StyledPrice>
                   <Title htmlTag="p" size={17} size_mobile={13}>${product.price}</Title>
                 </StyledPrice>
-                <StyledButton>
+                <StyledButton onClick={ async (e)=> {
+                  e.preventDefault();
+                  await deleteCarts(cartId);
+                }}>
                   <Trash2 color={'red'} />
                 </StyledButton>
                 <StyledButton>
