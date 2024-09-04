@@ -12,7 +12,7 @@ const Modal = ({
                  okText = 'Ok',
                  okProps = {},
                  width = 350,
-                 contentStyle = defaultCustomStyles.content, // Usa los estilos predeterminados importados
+                 contentStyle = defaultCustomStyles.content,
                  closeButton = true,
                  isLoading,
                  ...restProps

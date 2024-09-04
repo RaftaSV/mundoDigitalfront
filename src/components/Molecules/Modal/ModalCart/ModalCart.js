@@ -30,13 +30,14 @@ const ModalCart = ({ isOpen, onCancel, cart }) => {
     <Modal
       width={500}
       isOpen={isOpen}
-      onCancel={onCancel}
+      onCancel={()=> {
+        onCancel();
+      }}
     >
-      <StyleWrapper>
+      <StyleWrapper >
         {cartItems.length > 0 ? (
           cartItems.map((item) => {
             const { cartId, product } = item; // Destructura `cartId` y `product`
-
             return (
               <StyledCard key={cartId}>
                 <StyledImg src={product.urlImage} alt={product.productName || 'Product Image'} />
@@ -46,8 +47,7 @@ const ModalCart = ({ isOpen, onCancel, cart }) => {
                 <StyledPrice>
                   <Title htmlTag="p" size={17} size_mobile={13}>${product.price}</Title>
                 </StyledPrice>
-                <StyledButton onClick={ async (e)=> {
-                  e.preventDefault();
+                <StyledButton onClick={ async ()=> {
                   await deleteCarts(cartId);
                 }}>
                   <Trash2 color={'red'} />
@@ -59,7 +59,7 @@ const ModalCart = ({ isOpen, onCancel, cart }) => {
             );
           })
         ) : (
-          <div>No items in cart.</div> // Muestra un mensaje si el carrito está vacío
+          <Title htmlTag="p" size={17} size_mobile={13}>No tienes nada sgregado a tu carrito</Title>
         )}
       </StyleWrapper>
     </Modal>

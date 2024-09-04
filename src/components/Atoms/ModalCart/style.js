@@ -1,19 +1,31 @@
 import styled from 'styled-components';
-
+import {mediaQueries} from 'styles/theme';
 export const StyleBody = styled.div`
-  position: relative;
-  width: 375px;
-  min-width: 200px;
-  padding: 10px;
-  background-color: ${({ theme }) => theme.colors.bgModal};
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: ${({ theme }) => theme.zIndex.modal} ;
-  overflow-y: auto;
-  @media screen and (min-width: 768px) {
+  ${mediaQueries.mobile} {
+    position: relative;
+    width: 375px;
+    min-width: 200px;
+    padding: 10px;
+    background-color: ${({ theme }) => theme.colors.bgModal};
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: ${({ theme }) => theme.zIndex.modal} ;
+    overflow-y: auto;
+  }
+
+  ${mediaQueries.tablet} {
     min-width: 200px;
     width: ${({ $width }) => $width}px;
+    height: 400px;
+    justify-content: space-between;
+    overflow: hidden;
+  }
+
+  ${mediaQueries.desktop} {
+    min-width: 200px;
+    width: ${({ $width }) => $width}px;
+    height: 400px;
     justify-content: space-between;
     overflow: hidden;
   }
