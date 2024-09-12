@@ -28,7 +28,7 @@ export const StyleButtonEdit = styled(Button)`
 export const StyleButtonDelete = styled(Button)`
   cursor: pointer;
   display: flex;
-  background: ${({ theme }) => theme.colors.transparent};
+  background: ${({ theme }) => theme.colors.overlay};
   color:${({ theme }) => theme.colors.error};
   min-width: 40px;
   padding: 0;
@@ -42,13 +42,12 @@ export const StyleButtonDelete = styled(Button)`
 export const StyleButtonSend = styled(Button)`
     cursor: pointer;
     display: flex;
-    background:${({ theme }) => theme.colors.primary};
+    background:${({ theme }) => theme.colors.overlay};
     color:${({ theme }) => theme.colors.white};
     min-width: 40px;
     padding: 0;
     width:40px;
     height: 40px;
-    border-radius: 50px;
     font-size: 25px;
   //center
   justify-content: center;

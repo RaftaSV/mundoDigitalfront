@@ -1,4 +1,4 @@
-import {Container} from './style';
+import {Container} from './styled';
 
 export const ContainerCard =({children, widthMobile,widthTablet, widthDesktop}) => {
 

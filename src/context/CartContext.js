@@ -12,7 +12,7 @@ export const CartProvider = ({ children }) => {
   });
 
   useEffect(() => {
-    storage.setItem('cart', JSON.stringify(cart));
+    storage.setItem('cart', JSON.stringify(cart)) ;
   }, [cart]);
 
 

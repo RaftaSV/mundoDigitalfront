@@ -1,6 +1,5 @@
 import Delete from 'components/Atoms/Icons/Delete';
-import { StyleButtonDelete, StyleButtonEdit, StyleButtonSend, StyleWrapper } from './style';
-import PencilFilled from 'components/Atoms/Icons/PencilFilled';
+import { StyleButtonDelete, StyleButtonEdit, StyleWrapper } from './style';
 import useTokenInformation from 'hooks/useTokenInformation';
 import {Trash, Edit} from 'lucide-react'
 const ButtonEditAndDelete = ({ onEdit, onRemove = false, showSend }) => {
@@ -17,7 +16,8 @@ const ButtonEditAndDelete = ({ onEdit, onRemove = false, showSend }) => {
         event.preventDefault();
         onEdit();
       }}>
-        <Edit />
+        <Edit
+        />
       </StyleButtonEdit>
       <StyleButtonDelete onClick={  (event)=>{
         event.preventDefault();

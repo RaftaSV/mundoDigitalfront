@@ -1,16 +1,16 @@
 import styled from 'styled-components';
 import {mediaQueries} from 'styles/theme';
 export const StyleBody = styled.div`
+  z-index: ${({ theme }) => theme.zIndex.modal} ;
+  background-color: ${({ theme }) => theme.colors.bgModal};
   ${mediaQueries.mobile} {
     position: relative;
     width: 375px;
     min-width: 200px;
     padding: 10px;
-    background-color: ${({ theme }) => theme.colors.bgModal};
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: ${({ theme }) => theme.zIndex.modal} ;
     overflow-y: auto;
   }
 

@@ -4,6 +4,7 @@ import { mediaQueries } from '../../../styles/theme';
 export const Container = styled.div`
   gap: 20px;
   margin-top: 20px;
+
   ${mediaQueries.mobile} {
     width: 100%;
     justify-content: center;
