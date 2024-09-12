@@ -9,14 +9,17 @@ import { themeLight, themeDark } from 'styles/theme';
 import { AppThemeProvider, useAppTheme } from 'context/AppTheme';
 import Routes from 'routes';
 
+// Inicializa Google Analytics
+ReactGA.initialize(`${process.env.REACT_APP_GOOGLE_ANALYTICS_ID}`); // Reemplaza con tu ID de Google Analytics
+
 const AppRenderTheme = memo(() => {
   const { theme } = useAppTheme();
 
   useEffect(() => {
-    // Inicializar Google Analytics para medicion de visitas
-    ReactGA.initialize(`${process.env.REACT_APP_GOOGLE_ANALYTICS_ID}`);
-    ReactGA.send('pageview'); // Registra la primera vista de página
-  }, []); // Se ejecuta solo una vez cuando el componente se monta
+    // Rastrea la vista de la página
+    ReactGA.send({ hitType: 'pageview', page: window.location.pathname + window.location.search });
+    console.log(window.location.pathname + window.location.search, `${process.env.REACT_APP_GOOGLE_ANALYTICS_ID}`);
+  }, []);
 
   return (
     <ThemeProvider theme={theme === 'light' ? themeLight : themeDark}>
