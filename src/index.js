@@ -13,8 +13,8 @@ const AppRenderTheme = memo(() => {
   const { theme } = useAppTheme();
 
   useEffect(() => {
-    // Inicializar Google Analytics
-    ReactGA.initialize(`${process.env.REACT_APP_GOOGLE_ANALYTICS_ID}`); // Reemplaza con tu ID de seguimiento
+    // Inicializar Google Analytics para medicion de visitas
+    ReactGA.initialize(`${process.env.REACT_APP_GOOGLE_ANALYTICS_ID}`);
     ReactGA.send('pageview'); // Registra la primera vista de página
   }, []); // Se ejecuta solo una vez cuando el componente se monta
 
