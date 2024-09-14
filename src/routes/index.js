@@ -8,6 +8,8 @@ import Products from 'pages/Products';
 import ProductInformation from 'pages/ProductInformation';
 import ProtectedRouter from './ProtectedRouter';
 import Users from '../pages/Users';
+import usePageViews from '../hooks/insertPageView';
+import PageView from '../pages/PageView';
 
 
 const Routes = () => {
@@ -20,6 +22,7 @@ const Routes = () => {
           <Route path={ROUTES.HOME.absolutePath} element={<Categories />} />
           <Route path={ROUTES.PRODUCT.path} element={<Products/>} />
           <Route path={ROUTES.PRODUCT_INFORMATION.path} element={<ProductInformation/>} />
+          <Route path={ROUTES.PAGE_VIEW.absolutePath} element={<PageView/>} />
         </Route>
         <Route path="*" element={<NotFound/>} />
       </ReactRoutes>
