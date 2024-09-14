@@ -17,6 +17,10 @@ export const ROUTES = {
     path: 'usuarios',
     absolutePath: '/Usuarios'
   },
+  PAGE_VIEW: {
+    path: 'vistas de paginas',
+    absolutePath: '/InfoWeb'
+  },
   NOTFOUND: {
     path: 'NotFound',
     absolutePath: '/NotFound'

@@ -11,6 +11,7 @@ import modalDelete from 'components/Molecules/Modal/ModalDelete';
 import HeaderFilter from 'components/Molecules/HeaderFilter';
 import ContainerCard from '../components/template/ContainerCard';
 import CardPurchases from '../components/Atoms/CardPurchases';
+import usePageViews from '../hooks/insertPageView';
 
 function Categories() {
   const { data, loading, refresh } = useQuery('/Categories');
@@ -53,7 +54,6 @@ function Categories() {
   const filteredCategories = data?.categories?.filter((Category) =>
     Category.categoryName.toLowerCase().includes(searchTerm.toLowerCase())
   );
-
   return (
     <Layout>
       <CardPurchases/>

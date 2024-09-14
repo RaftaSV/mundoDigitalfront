@@ -30,9 +30,6 @@ const ModalCart = ({ isOpen, onCancel, cart }) => {
     <Modal
       width={500}
       isOpen={isOpen}
-      onCancel={()=> {
-        onCancel();
-      }}
     >
       <StyleWrapper >
         {cartItems.length > 0 ? (
