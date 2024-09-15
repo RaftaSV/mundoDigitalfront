@@ -62,12 +62,20 @@ export const useAuth =  () => {
       })
       .then((response) => {
         const token = response.data.token;
+        const decodedToken = JSON.parse(atob(token.split('.')[1]));
+        if (decodedToken && decodedToken.User.fullName) {
+         if (decodedToken.User.userstype.userType.toString().toLocaleUpperCase() === 'ADMIN') {
+           navigate(ROUTES.PRIMARY.absolutePath)
+         }else{
+           navigate(ROUTES.WELCOME.absolutePath)
+         }
+        }
         const data = response.data.data;
         cookies.set('auth-token', token, { path: '/', maxAge: 86400});
         updateCart(data);
         axios.defaults.headers.common['Authorization'] = `${token}`;
         setIsAuthenticated(true);
-         navigate(ROUTES.HOME.absolutePath)
+
       })
       .catch((error) => {
         if (error.response.status === 401) {

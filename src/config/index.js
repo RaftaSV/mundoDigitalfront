@@ -21,6 +21,14 @@ export const ROUTES = {
     path: 'vistas de paginas',
     absolutePath: '/InfoWeb'
   },
+  PRIMARY: {
+    path: 'Principal',
+    absolutePath: '/Principal'
+  },
+  WELCOME: {
+    path: 'Bienvenida',
+    absolutePath: '/Bienvenida'
+  },
   NOTFOUND: {
     path: 'NotFound',
     absolutePath: '/NotFound'

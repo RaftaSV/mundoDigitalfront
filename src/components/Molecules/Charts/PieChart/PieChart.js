@@ -18,10 +18,9 @@ const getRandomColor = () => {
   return color;
 };
 
-const PieChart = ({ data = [], title }) => {
+const PieChart = ({ data = [], title, totalView = null }) => {
   const KEY_THEME_NAME = 'theme';
   const localTheme = storage.getItem(KEY_THEME_NAME);
-
   const [background, setBackground] = useState();
   const [colorTitle, setColorTitle] = useState();
 
@@ -34,6 +33,8 @@ const PieChart = ({ data = [], title }) => {
       setColorTitle(themeDark.colors.text);
     }
   }, [localTheme]);
+
+  const TotalView = totalView ? totalView : 0;
   const chartData = useMemo(() => {
     return {
       labels: data?.map(item => item.pageUrl),
@@ -82,6 +83,7 @@ const PieChart = ({ data = [], title }) => {
       <StyledWrapperChart>
         <Pie data={chartData} options={options}/>
       </StyledWrapperChart>
+      <Title size={20} size_mobile={12}>Total de vistas: {TotalView} 😎</Title>
     </StyledWrapper>
   );
 };

@@ -24,6 +24,7 @@ const ProtectedRouter = () => {
     ROUTES.HOME.absolutePath,
     ROUTES.PRODUCT.absolutePath(categoryId),
     ROUTES.PRODUCT_INFORMATION.absolutePath(productId),
+    ROUTES.WELCOME.absolutePath,
   ];
   if (userType === 'ADMIN') {
     return <Outlet />;

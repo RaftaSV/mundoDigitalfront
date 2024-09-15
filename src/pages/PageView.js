@@ -4,21 +4,24 @@ import Layout from 'components/Organisms/Layout';
 
 import PieChart from '../components/Molecules/Charts/PieChart';
 import Button from '../components/Atoms/Button';
-
+import { RefreshCcwIcon } from 'lucide-react'
+import HeaderPage from '../components/Molecules/HeaderPage';
 const PageView = () => {
 
   const { data, loading, refresh } = useQuery(`/Pageview`);
-
-
+  document.title = 'Informacion del sitio';
   return(
     <Layout>
-      <br/>
-      <Button onClick={async ()=>{
-        await refresh()
-      }}> refrescar</Button>
+      <HeaderPage title={'Informacion del sitio web' } >
+        <Button onClick={async ()=>{
+          await refresh()
+        }} color={'transparent'}>
+          <RefreshCcwIcon color="#3e9392" />
+        </Button>
+      </HeaderPage>
       <PieChart
         data={data?.viewsByUrl}
-        title={'Visitas de paginas'}
+        totalView={data?.totalViews}
       />
     </Layout>
   )

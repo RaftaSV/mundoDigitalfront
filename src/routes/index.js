@@ -10,6 +10,8 @@ import ProtectedRouter from './ProtectedRouter';
 import Users from '../pages/Users';
 import usePageViews from '../hooks/insertPageView';
 import PageView from '../pages/PageView';
+import Primary from '../pages/Primary/Primary';
+import WelcomeWebsite from '../pages/Welcome';
 
 
 const Routes = () => {
@@ -23,6 +25,8 @@ const Routes = () => {
           <Route path={ROUTES.PRODUCT.path} element={<Products/>} />
           <Route path={ROUTES.PRODUCT_INFORMATION.path} element={<ProductInformation/>} />
           <Route path={ROUTES.PAGE_VIEW.absolutePath} element={<PageView/>} />
+          <Route path={ROUTES.PRIMARY.absolutePath} element={<Primary/>} />
+          <Route path={ROUTES.WELCOME.absolutePath} element={<WelcomeWebsite/>} />
         </Route>
         <Route path="*" element={<NotFound/>} />
       </ReactRoutes>
