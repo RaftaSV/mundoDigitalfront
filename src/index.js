@@ -19,7 +19,7 @@ const AppRenderTheme = memo(() => {
 
 useEffect(() => {
   ReactGA.initialize(`${process.env.REACT_APP_GOOGLE_ANALYTICS_ID}`);
-  ReactGA.send('pageview');
+  ReactGA.send({ hitType: 'pageview', page: window.location.pathname + window.location.search });add *
 }, []);
 
 
