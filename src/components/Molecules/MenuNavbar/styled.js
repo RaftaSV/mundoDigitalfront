@@ -6,7 +6,7 @@ export const StyleMenuNavbar = styled.div`
   ${mediaQueries.desktop} {
     display: flex;
     flex-direction: row;
-    align-content: space-between;
+    align-content: center;
     justify-content: space-between;
     padding: 10px;
     width: 95vw;
@@ -15,12 +15,16 @@ export const StyleMenuNavbar = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
+    width: 95vw;
+    justify-content: space-between;
   }
   ${mediaQueries.mobile} {
     display: flex;
     flex-direction: row;
     align-items: center;
-    align-content: space-between;
+    justify-content: space-between;
+    width: 98vw;
+    margin-left: -20px;
   }
 `;
 
@@ -42,7 +46,6 @@ export const StyleText = styled.div`
 export const StyleMenuItem = styled(Button)`
   ${mediaQueries.desktop} {
     min-width: auto;
-    padding: 1px 10px;
     transition: color 0.4s;
     margin-top: 0;
     &:hover {
@@ -52,7 +55,6 @@ export const StyleMenuItem = styled(Button)`
   }
   ${mediaQueries.tablet} {
     min-width: auto;
-    padding: 1px 10px;
     transition: color 0.3s;
     margin-top: 0;
     &:hover {
@@ -62,7 +64,6 @@ export const StyleMenuItem = styled(Button)`
   }
   ${mediaQueries.mobile} {
     min-width: auto;
-    padding: 1px 10px;
     transition: color 0.4s;
     margin-top: 0;
     &:hover {
@@ -75,7 +76,6 @@ export const StyleMenuItem = styled(Button)`
 export const StyleMenuItemCart = styled(Button)`
   ${mediaQueries.desktop} {
     min-width: auto;
-    padding: 1px 10px;
     transition: color 0.4s;
     margin-top: 0;
     &:hover {
@@ -85,7 +85,6 @@ export const StyleMenuItemCart = styled(Button)`
   }
   ${mediaQueries.tablet} {
     min-width: auto;
-    padding: 1px 10px;
     transition: color 0.3s;
     margin-top: 0;
     &:hover {
@@ -95,7 +94,6 @@ export const StyleMenuItemCart = styled(Button)`
   }
   ${mediaQueries.mobile} {
     min-width: auto;
-    padding: 1px 10px;
     transition: color 0.4s;
     margin-top: 0;
     &:hover {
@@ -112,5 +110,7 @@ width: max-content;
 export const StyleIcon = styled.div`
   width: max-content;
   display: flex;
+  padding: 0;
+  gap: 3px;
 
 `

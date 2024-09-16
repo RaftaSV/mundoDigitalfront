@@ -53,7 +53,7 @@ const {firstName} = useTokenInformation();
       <StyleMenuItemCart
         color="transparent"
         labelColor="text"
-        style={{ fontSize: 14 }}
+        style={{ fontSize: 13 }}
       >
         {!isLoginPage && authToken ? <CartShowCount /> : null}
       </StyleMenuItemCart>
