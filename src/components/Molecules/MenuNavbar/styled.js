@@ -6,9 +6,10 @@ export const StyleMenuNavbar = styled.div`
   ${mediaQueries.desktop} {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    align-content: center;
+    align-content: space-between;
+    justify-content: space-between;
     padding: 10px;
+    width: 95vw;
   }
   ${mediaQueries.tablet} {
     display: flex;
@@ -19,8 +20,7 @@ export const StyleMenuNavbar = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
-
-
+    align-content: space-between;
   }
 `;
 
@@ -104,4 +104,13 @@ export const StyleMenuItemCart = styled(Button)`
     }
   }
 `;
+export const StyleLogo = styled.div`
+width: max-content;
+  display: flex;
+`
 
+export const StyleIcon = styled.div`
+  width: max-content;
+  display: flex;
+
+`

@@ -91,17 +91,14 @@ export const StyleRegisterUser = styled.div`
   }
   `;
 export const StyleImageLogo = styled.img `
-  border-radius: 12px;
-  min-width: 150px;
-  width: 45%;
-  padding: 20px;
-  display: none;
-  max-height: 450px;
-  margin-top: -50px;
-  animation-direction: alternate-reverse;
-  @media screen and (min-width: 768px) {
-    display:flex;
-
+  ${mediaQueries.mobile}{}
+  ${mediaQueries.tablet}{
+    width: 575px;
+    height: 4   55px;
+  }
+  ${mediaQueries.desktop}{
+    width: 675px;
+    height: 555px;
   }
 `;
 

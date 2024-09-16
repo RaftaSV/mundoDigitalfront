@@ -7,7 +7,7 @@ export const FeaturesSection = styled.div`
   padding: 40px 20px;
   margin-top: 20px;
   width: 100%;
-  background-color: ${({ theme }) => theme.colors.bgCard};
+  background-color: ${({ theme }) => theme.colors.background};
   border-radius: 10px;
   ${mediaQueries.mobile} {
     flex-direction: column;

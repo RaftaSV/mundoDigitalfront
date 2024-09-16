@@ -3,7 +3,7 @@ import SunFilled from 'components/Atoms/Icons/SunFilled';
 import MoonFilled from 'components/Atoms/Icons/MoonFilled';
 import Exit from 'components/Atoms/Icons/Exit';
 import Login from 'components/Atoms/Icons/Login';
-import {StyleMenuItem, StyleMenuItemCart, StyleMenuNavbar, StyleText} from './styled';
+import {StyleIcon, StyleLogo, StyleMenuItem, StyleMenuItemCart, StyleMenuNavbar, StyleText} from './styled';
 import { useAuth } from 'context/AuthContextCookie';
 import {ROUTES} from 'config';
 import Title from 'components/Atoms/Title';
@@ -33,8 +33,13 @@ const {firstName} = useTokenInformation();
 
   return (
     <StyleMenuNavbar>
+      <StyleLogo>
+      <img src={'logo.png'} alt={'logo'} style={{ width: '55px', height: '50px' }} />
+      <Title size={20} size_mobile={18} lineHeight={48} style={{fontFamily: 'old london'}}>Mundo Digital</Title>
+      </StyleLogo>
+      <StyleIcon>
       <StyleText>
-        <Title size={17}>{firstName ? firstName.toUpperCase() : ''}</Title>
+        <Title size={17} lineHeight={45}>{firstName ? firstName.toUpperCase() : ''}</Title>
       </StyleText>
       <StyleMenuItem
         color="transparent"
@@ -60,6 +65,7 @@ const {firstName} = useTokenInformation();
       >
         {theme === 'light' ? <MoonFilled /> : <SunFilled />}
       </StyleMenuItem>
+      </StyleIcon>
     </StyleMenuNavbar>
   );
 };

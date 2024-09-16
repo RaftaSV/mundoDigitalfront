@@ -14,12 +14,12 @@ export const HeaderSection = styled.div`
     width: 80%;
   }
   ${mediaQueries.desktop} {
-    width: 80%;
+    width: 70%;
   }
 `;
 
 export const StyledWrapper = styled.div`
-  background-color: ${({ theme }) => theme.colors.bgCard};
+  background-color: ${({ theme }) => theme.colors.background};
   width: 100%;
   margin-top: 20px;
   border-radius: 10px;
@@ -55,21 +55,21 @@ export const StyledImageContainer = styled.div`
   }
   ${mediaQueries.desktop}{
     display: flex;
-    width: 20%;
+    width: 30%;
   }
 `
 export const StyledImage = styled.img`
   ${mediaQueries.mobile}{
-    width: 150px;
-    height: 150px;
+    width: 300px;
+    height: 235px;
   }
   ${mediaQueries.tablet}{
-    width: 200px;
-    height: 200px;
+    width: 350px;
+    height: 275px;
   }
   ${mediaQueries.desktop}{
     display: flex;
-    width: 200px;
-    height: 200px;
+    width: 450px;
+    height: 350px;
   }
 `
