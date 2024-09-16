@@ -7,7 +7,7 @@ import {StyleIcon, StyleLogo, StyleMenuItem, StyleMenuItemCart, StyleMenuNavbar,
 import { useAuth } from 'context/AuthContextCookie';
 import {ROUTES} from 'config';
 import Title from 'components/Atoms/Title';
-import { useNavigate } from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import { useState } from 'react';
 import useTokenInformation from 'hooks/useTokenInformation';
 import CartShowCount from '../CartShowCount';
@@ -33,10 +33,12 @@ const {firstName} = useTokenInformation();
 
   return (
     <StyleMenuNavbar>
-      <StyleLogo>
-      <img src={'logo.png'} alt={'logo'} style={{ width: '55px', height: '50px' }} />
-      <Title size={20} size_mobile={18} lineHeight={48} style={{fontFamily: 'old london'}}>Mundo Digital</Title>
-      </StyleLogo>
+      <Link to={ROUTES.WELCOME.absolutePath} >
+        <StyleLogo>
+        <img src={'logo.png'} alt={'logo'} style={{ width: '55px', height: '50px' }} />
+        <Title size={20} size_mobile={18} lineHeight={48} style={{fontFamily: 'old london'}}>Mundo Digital</Title>
+        </StyleLogo>
+      </Link>
       <StyleIcon>
       <StyleText>
         <Title size={17} lineHeight={45}>{firstName ? firstName.toUpperCase() : ''}</Title>
