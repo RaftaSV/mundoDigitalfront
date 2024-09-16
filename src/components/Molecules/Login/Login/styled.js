@@ -91,10 +91,13 @@ export const StyleRegisterUser = styled.div`
   }
   `;
 export const StyleImageLogo = styled.img `
-  ${mediaQueries.mobile}{}
+  ${mediaQueries.mobile}{
+display: none;
+
+}
   ${mediaQueries.tablet}{
-    width: 575px;
-    height: 4   55px;
+    width: 475px;
+    height: 355px;
   }
   ${mediaQueries.desktop}{
     width: 675px;
