@@ -1,5 +1,6 @@
 import React, { memo, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
+import ReactGA from 'react-ga4';
 import { ThemeProvider } from 'styled-components';
 import { CartProvider } from 'context/CartContext';
 import GlobalStyle from 'styles/global';
@@ -15,6 +16,12 @@ const AppRenderTheme = memo(() => {
     </ThemeProvider>
   );
 });
+
+useEffect(() => {
+  ReactGA.initialize(`${process.env.REACT_APP_GOOGLE_ANALYTICS_ID}`);
+  ReactGA.send('pageview');
+}, []);
+
 
 const App = () => {
   return (
