@@ -8,7 +8,7 @@ export const StyleNavbar = styled.nav`
   align-items: center;
   border-radius: 10px;
   padding: 0 20px;
-  height: 40px;
+  height: 50px;
   backdrop-filter: saturate(180%) blur(10px);
   background: ${({ theme }) => theme.colors.nav};
   z-index: ${({ theme }) => theme.zIndex.nav};

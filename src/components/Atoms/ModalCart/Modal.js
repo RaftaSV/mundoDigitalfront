@@ -32,7 +32,13 @@ const Modal = ({
 
 
   return (
-    <LibModal style={{...customStyles, content: contentStyle}} isOpen={isOpen} {...restProps}>
+    <LibModal style={{...customStyles,
+      content: contentStyle}}
+              isOpen={isOpen}
+              onRequestClose={onCancel}
+              shouldCloseOnOverlayClick={false}
+              {...restProps}>
+
       <StyleBody $width={width}>
         {children}
       </StyleBody>

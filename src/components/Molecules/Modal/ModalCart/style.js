@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Button from 'components/Atoms/Button';
+
 export const StyleWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -30,37 +30,17 @@ export const StyleWrapper = styled.div`
   }
 `;
 
-export const StyledCard = styled.div`
+
+export const TotalPriceWrapper = styled.div`
   display: flex;
-  background: ${({ theme }) => theme.colors.bgCard};
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 0;
+  left: 0;
   width: 100%;
   height: 60px;
-  align-items: center;
-  gap: 10px;
-`
+  background: ${({theme}) => theme.colors.background};
+`;
 
-export const StyledImg = styled.img`
-  display: flex;
-  width: 80px;
-  height: 60px;
-  align-items: center;
-  filter: drop-shadow(${({ theme }) => theme.colors.boxShadow});
-`
-
-
-export const StyledText = styled.div`
-  width: 170px;
-  height: 100%;
-  display: flex;
-  align-items: center;
-`
-export const StyledPrice = styled.div`
-  width: 100px;
-  height: 100%;
-  display: flex;
-  align-items: center;
-`
-
-export const StyledButton = styled(Button)`
-  background: ${({ theme }) => theme.colors.transparent};
-`

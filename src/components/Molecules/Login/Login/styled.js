@@ -83,11 +83,21 @@ export const StyleImageAvatar = styled.img`
     max-width: 15vw;
   }
 `;
-export const StyleRegisterUser = styled.div`
 
-  @media screen and (min-width: 768px) {
-    margin-left: -90%;
-    margin-top: 50%;
+export const StyleContainerImage = styled.div`
+  display: flex;
+  ${mediaQueries.mobile}{
+    display: none;
+  }
+  ${mediaQueries.tablet}{
+    display: flex;
+    width: 50%;
+    align-items: center;
+  }
+  ${mediaQueries.desktop}{
+    display: flex;
+    width: 50%;
+    align-items: center;
   }
   `;
 export const StyleImageLogo = styled.img `
@@ -96,12 +106,14 @@ display: none;
 
 }
   ${mediaQueries.tablet}{
-    width: 475px;
-    height: 355px;
+    display: flex;
+    width: 360px;
+    height: 360px;
   }
   ${mediaQueries.desktop}{
-    width: 675px;
-    height: 555px;
+    display: flex;
+    width: 400px;
+    height: 400px;
   }
 `;
 

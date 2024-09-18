@@ -8,10 +8,10 @@ import Products from 'pages/Products';
 import ProductInformation from 'pages/ProductInformation';
 import ProtectedRouter from './ProtectedRouter';
 import Users from '../pages/Users';
-import usePageViews from '../hooks/insertPageView';
 import PageView from '../pages/PageView';
 import Primary from '../pages/Primary/Primary';
 import WelcomeWebsite from '../pages/Welcome';
+import Payment from '../pages/payment';
 
 
 const Routes = () => {
@@ -21,12 +21,13 @@ const Routes = () => {
         <Route element={<ProtectedRouter />}>
           <Route path={ROUTES.USERS.absolutePath} element={<Users/>} />
           <Route path={ROUTES.LOGIN.absolutePath} element={<Login />} />
-          <Route path={ROUTES.HOME.absolutePath} element={<Categories />} />
+          <Route path={ROUTES.CATEGORY.absolutePath} element={<Categories />} />
           <Route path={ROUTES.PRODUCT.path} element={<Products/>} />
           <Route path={ROUTES.PRODUCT_INFORMATION.path} element={<ProductInformation/>} />
           <Route path={ROUTES.PAGE_VIEW.absolutePath} element={<PageView/>} />
           <Route path={ROUTES.PRIMARY.absolutePath} element={<Primary/>} />
-          <Route path={ROUTES.WELCOME.absolutePath} element={<WelcomeWebsite/>} />
+          <Route path={ROUTES.HOME.absolutePath} element={<WelcomeWebsite/>} />
+          <Route path={ROUTES.PAYMENT_PRODUCTS.absolutePath} element={<Payment/>} />
         </Route>
         <Route path="*" element={<NotFound/>} />
       </ReactRoutes>

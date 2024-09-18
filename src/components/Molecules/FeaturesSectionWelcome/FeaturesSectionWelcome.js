@@ -27,7 +27,7 @@ const featuresSectionWelcome = () => {
           <Title size={20} size_mobile={12} lineHeight={20} htmlTag={'p'}>Todo lo que necesitas para una conectividad perfecta</Title>
         </Feature>
       </StyledLink>
-      <StyledLink to={ROUTES.HOME.absolutePath}>
+      <StyledLink to={ROUTES.CATEGORY.absolutePath}>
       <Feature>
         <IconWrapper>
           <ShoppingCart/>

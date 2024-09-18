@@ -13,7 +13,7 @@ const colorsLight = {
   bgCard: '#ffffff', // Fondo blanco de las tarjetas
   text: '#424242', // Texto gris oscuro
   placeholder: 'rgba(12,12,12,0.56)',
-  nav: '#ffffff', // Blanco para la navegación
+  nav: '#e8ebec', // Blanco para la navegación
   modal: 'rgba(0, 0, 0, 0.5)', // Modal oscuro semitransparente
   bgModal: '#ffffff', // Fondo blanco del modal
   input: '#e1e1e1', // Color de entrada gris claro

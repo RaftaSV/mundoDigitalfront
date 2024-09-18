@@ -24,7 +24,6 @@ const usePageViews = () => {
         try {
           await axios.post(`${baseUrl}/pageview`, pageViewData);
           registeredPaths.current.add(path);
-          console.log('insertando pageview');
           sessionStorage.setItem(pageViewKey, 'true');
         } catch (error) {
           console.error('Error registrando la vista de la página:', error);

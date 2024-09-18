@@ -3,7 +3,7 @@ import SunFilled from 'components/Atoms/Icons/SunFilled';
 import MoonFilled from 'components/Atoms/Icons/MoonFilled';
 import Exit from 'components/Atoms/Icons/Exit';
 import Login from 'components/Atoms/Icons/Login';
-import {StyleIcon, StyleLogo, StyleMenuItem, StyleMenuItemCart, StyleMenuNavbar, StyleText} from './styled';
+import {Img, StyleIcon, StyleLogo, StyleMenuItem, StyleMenuItemCart, StyleMenuNavbar, StyleText} from './styled';
 import { useAuth } from 'context/AuthContextCookie';
 import {ROUTES} from 'config';
 import Title from 'components/Atoms/Title';
@@ -11,9 +11,13 @@ import {Link, useNavigate} from 'react-router-dom';
 import { useState } from 'react';
 import useTokenInformation from 'hooks/useTokenInformation';
 import CartShowCount from '../CartShowCount';
+import {useCart} from 'context/CartContext';
+import useModal from 'hooks/useModal';
+import ModalCart from '../Modal/ModalCart';
+import  logoImage from './Images/logo.png'
 
 
-const MenuNavbar = ({refresh}) => {
+const MenuNavbar = () => {
   const { logout, getCookies, removeCookies } = useAuth();
   const { themeToggle, theme } = useAppTheme();
 
@@ -30,12 +34,15 @@ const {firstName} = useTokenInformation();
     setAuthToken(null);
     navigate(ROUTES.LOGIN.absolutePath, { replace: true });
   };
+  const { cart } = useCart();
+  const { visible, onToggle } = useModal();
+
 
   return (
     <StyleMenuNavbar>
-      <Link to={ROUTES.WELCOME.absolutePath} >
+      <Link to={ROUTES.HOME.absolutePath} >
         <StyleLogo>
-        <img src={'logo.png'} alt={'logo'} style={{ width: '55px', height: '50px' }} />
+        <Img src={logoImage} />
         <Title size={20} size_mobile={18} lineHeight={48} style={{fontFamily: 'old london'}}>Mundo Digital</Title>
         </StyleLogo>
       </Link>
@@ -53,11 +60,12 @@ const {firstName} = useTokenInformation();
         {!isLoginPage && !authToken ? <Login /> : null}
       </StyleMenuItem>
       <StyleMenuItemCart
+        onClick={onToggle}
         color="transparent"
         labelColor="text"
         style={{ fontSize: 13 }}
       >
-        {!isLoginPage && authToken ? <CartShowCount /> : null}
+        {!isLoginPage && authToken ? <CartShowCount  cart={cart}/> : null}
       </StyleMenuItemCart>
       <StyleMenuItem
         color="transparent"
@@ -68,6 +76,10 @@ const {firstName} = useTokenInformation();
         {theme === 'light' ? <MoonFilled /> : <SunFilled />}
       </StyleMenuItem>
       </StyleIcon>
+      <ModalCart
+        cart={ {cartUser : cart}}
+        isOpen={visible}
+      />
     </StyleMenuNavbar>
   );
 };

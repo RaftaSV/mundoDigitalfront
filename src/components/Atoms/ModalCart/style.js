@@ -34,13 +34,12 @@ export const StyleBody = styled.div`
 
 export const customStyles = {
   content: {
-    top: '50px',
+    top: '60px',
     left: 'auto',
     right: '5px',
     bottom: 'auto',
     marginLeft: '0',
     marginRight: '0',
     padding: 0,
-
   }
 };

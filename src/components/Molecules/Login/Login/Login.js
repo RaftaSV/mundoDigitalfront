@@ -13,7 +13,7 @@ import {
   StyleImageLogo,
   StyleShowPassword,
   Checkbox,
-  TITLE,
+  TITLE, StyleContainerImage,
 } from './styled';
 
 const SignInForm = ({onClickUser}) => {
@@ -41,7 +41,9 @@ const SignInForm = ({onClickUser}) => {
 
   return (
     <FormContainer>
-      <StyleImageLogo loading="lazy" src="logo.png" />
+      <StyleContainerImage>
+        <StyleImageLogo loading="lazy" src="logo.png" />
+      </StyleContainerImage>
       <Style>
         <StyleImageAvatar loading="lazy" src="Avatar.png"/>
         <Title size={18}>Correo</Title>

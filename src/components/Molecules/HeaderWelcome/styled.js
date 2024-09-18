@@ -7,11 +7,12 @@ export const HeaderSection = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 20px;
   ${mediaQueries.mobile} {
     width: 100%;
   }
   ${mediaQueries.tablet} {
-    width: 80%;
+    width: 100%;
   }
   ${mediaQueries.desktop} {
     width: 70%;
@@ -26,14 +27,14 @@ export const StyledWrapper = styled.div`
   ${mediaQueries.mobile}{
     display: flex;
     flex-direction: column;
-    height: 40vh;
+    height: 50vh;
     justify-content: center;
     justify-items: center;
   }
   ${mediaQueries.tablet}{
     display: flex;
     flex-direction: row;
-    height: 30vh;
+    height: 60vh;
   }
   ${mediaQueries.desktop}{
     display: flex;
@@ -51,7 +52,8 @@ export const StyledImageContainer = styled.div`
   }
   ${mediaQueries.tablet}{
     display: flex;
-    width: 20%;
+    width: 45%;
+    align-content: space-between;
   }
   ${mediaQueries.desktop}{
     display: flex;
@@ -59,17 +61,18 @@ export const StyledImageContainer = styled.div`
   }
 `
 export const StyledImage = styled.img`
+  display: flex;
   ${mediaQueries.mobile}{
-    width: 300px;
-    height: 235px;
+    width: 200px;
+    height: 200px;
   }
   ${mediaQueries.tablet}{
-    width: 350px;
-    height: 275px;
+    width: 200px;
+    height: 200px;
   }
   ${mediaQueries.desktop}{
     display: flex;
-    width: 450px;
-    height: 350px;
+    width: 300px;
+    height: 300px;
   }
 `

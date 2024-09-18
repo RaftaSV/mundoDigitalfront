@@ -103,9 +103,16 @@ export const StyleMenuItemCart = styled(Button)`
   }
 `;
 export const StyleLogo = styled.div`
-width: max-content;
+  width: max-content;
   display: flex;
+  height: 50px;
+  align-items: center;
 `
+export const Img = styled.img`
+  width: 60px;
+  height: 55px;
+`
+
 
 export const StyleIcon = styled.div`
   width: max-content;

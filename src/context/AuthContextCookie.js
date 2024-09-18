@@ -67,7 +67,7 @@ export const useAuth =  () => {
          if (decodedToken.User.userstype.userType.toString().toLocaleUpperCase() === 'ADMIN') {
            navigate(ROUTES.PRIMARY.absolutePath)
          }else{
-           navigate(ROUTES.WELCOME.absolutePath)
+           navigate(ROUTES.HOME.absolutePath)
          }
         }
         const data = response.data.data;

@@ -2,14 +2,14 @@ import styled, { css } from 'styled-components';
 import { mediaQueries } from 'styles/theme';
 
 export const StyleInput = styled.input`
+  display: flex;
   ${({ type, theme }) => type !== 'checkbox' && css`
 
     font-size: 20px;
     ${mediaQueries.mobile} {
       width:   ${({ $sizeMobile} ) => $sizeMobile}px;;
-      height: 38px;
-      border-radius: 10px;
-      border: none;
+      height: 40px;
+      border-radius: 5px;
       color: ${({ theme }) => theme.colors.text};
       background: ${({ theme }) => theme.colors.input};
       border: 2px solid ${({ theme }) => theme.colors.borderInput};

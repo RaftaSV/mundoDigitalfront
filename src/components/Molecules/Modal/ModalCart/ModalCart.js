@@ -1,62 +1,80 @@
+import React, { useState, useEffect } from 'react';
 import Modal from 'components/Atoms/ModalCart';
-import { StyleWrapper, StyledCard, StyledImg, StyledText, StyledPrice, StyledButton } from './style';
+import { StyleWrapper, TotalPriceWrapper } from './style';
 import Title from 'components/Atoms/Title';
-import { Trash2, DollarSign } from 'lucide-react';
 import useMutation from 'hooks/useMutation';
 import showAlert from 'components/Atoms/SweetAlert';
-import {useCart} from 'context/CartContext';
+import { useCart } from 'context/CartContext';
+import CardProductCart from '../../Card/CardProductCart/CardProductCart';
+import {Link} from 'react-router-dom';
+import Button from '../../../Atoms/Button';
+import {ROUTES} from '../../../../config';
 
-const ModalCart = ({ isOpen, onCancel, cart }) => {
+const ModalCart = ({
+                     isOpen,
+                     isUpdate = false,
+                     onCancel,
+                     cart = {}
+                   }) => {
+  const { updateCart } = useCart();
 
-  const cartItems = cart?.cartUser || [];
-  const {updateCart} = useCart();
+  const { cartUser = [] } = cart;
+  const [totalPrice, setTotalPrice] = useState(0.00);
+  const [deleteCart] = useMutation(`/carts`, { method: 'delete' });
 
-  const [deleteCart] = useMutation(`/carts`, {
-      method: 'delete'
+  const handleDeleteCart = async (cartId) => {
+    try {
+      const result = await deleteCart({}, cartId);
+      if (result?.data) {
+        showAlert('', result?.data.message || 'Listo', 1000);
+        updateCart(result.data.cartUser);
+      }
+    } catch (error) {
+      console.error("Error al eliminar el carrito:", error);
+      showAlert('Error', 'No se pudo eliminar el carrito', 2000);
     }
-  );
+  };
 
-  const deleteCarts = async( cartId) => {
-    const result = await deleteCart({}, cartId);
-    if (result?.data) {
-      showAlert('', result?.data.message || 'Listo', 1000);
-    }
-    setTimeout( () => {
-      updateCart(result.data.cartUser)
-    }, 500);
-  }
+  // Efecto para recalcular el total cada vez que el carrito cambie
+  useEffect(() => {
+    const newTotal = cartUser.reduce((sum, item) => {
+      const price = item?.product?.price || 0; // Asegurar que el precio exista
+      return parseFloat(sum) + parseFloat(price);
+    }, 0)
+    setTotalPrice(newTotal); // Actualizar el estado del total
+  }, [cartUser]); // Se ejecuta cada vez que cambie cartUser
 
   return (
     <Modal
       width={500}
       isOpen={isOpen}
+      onCancel={onCancel}
     >
-      <StyleWrapper >
-        {cartItems.length > 0 ? (
-          cartItems.map((item) => {
-            const { cartId, product } = item; // Destructura `cartId` y `product`
-            return (
-              <StyledCard key={cartId}>
-                <StyledImg src={product.urlImage} alt={product.productName || 'Product Image'} />
-                <StyledText>
-                  <Title htmlTag="p" size={17} size_mobile={13}>{product.productName}</Title>
-                </StyledText>
-                <StyledPrice>
-                  <Title htmlTag="p" size={17} size_mobile={13}>${product.price}</Title>
-                </StyledPrice>
-                <StyledButton onClick={ async ()=> {
-                  await deleteCarts(cartId);
-                }}>
-                  <Trash2 color={'red'} />
-                </StyledButton>
-                <StyledButton>
-                  <DollarSign color={'green'} />
-                </StyledButton>
-              </StyledCard>
-            );
-          })
+      <StyleWrapper>
+        {cartUser.length > 0 ? (
+          <>
+            {cartUser?.map(({ cartId, product }) => (
+                  <CardProductCart
+                    key={cartId}
+                    cartId={cartId} product={product}  handleDeleteCart={handleDeleteCart} />
+                )
+              )
+            }
+            <TotalPriceWrapper>
+              <Title htmlTag="p" size={20} size_mobile={16}>
+                Total: ${parseFloat(totalPrice).toFixed(2)}
+              </Title>
+              <Link to={ROUTES.PAYMENT_PRODUCTS.absolutePath}>
+                <Button color={'bgModal'} style={{
+                  width: '130px'
+                }}>Pagar</Button>
+              </Link>
+            </TotalPriceWrapper>
+          </>
         ) : (
-          <Title htmlTag="p" size={17} size_mobile={13}>No tienes nada sgregado a tu carrito</Title>
+          <Title htmlTag="p" size={17} size_mobile={13}>
+            No tienes nada agregado a tu carrito
+          </Title>
         )}
       </StyleWrapper>
     </Modal>

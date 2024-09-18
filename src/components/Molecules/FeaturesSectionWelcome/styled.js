@@ -38,7 +38,7 @@ export const Feature = styled.div`
     height: 150px;
   }
   ${mediaQueries.tablet} {
-    width: 400px;
+    width: 200px;
     height: 240px;
   }
   ${mediaQueries.desktop} {

@@ -25,9 +25,9 @@ export const ROUTES = {
     path: 'Principal',
     absolutePath: '/Principal'
   },
-  WELCOME: {
-    path: 'Bienvenida',
-    absolutePath: '/Bienvenida'
+  CATEGORY: {
+    path: 'Categorias',
+    absolutePath: '/Categorias'
   },
   NOTFOUND: {
     path: 'NotFound',
@@ -40,6 +40,10 @@ export const ROUTES = {
   PRODUCT_INFORMATION: {
     path: '/InformacionProducto/:productId',
     absolutePath: (productId) => `/InformacionProducto/${productId}`
+  },
+  PAYMENT_PRODUCTS : {
+    path: '/pago',
+    absolutePath: '/Pago'
   }
 }
 

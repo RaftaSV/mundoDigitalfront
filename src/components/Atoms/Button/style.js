@@ -5,7 +5,6 @@ export const StyleButton = styled.button`
   height: 45px;
   min-width: 50px;
   border-radius: 12px;
-  margin-top: 10px;
   cursor: pointer;
   background: ${({ theme, $color }) => theme.colors[$color]};
   color: ${({ theme }) => theme.colors.text};
