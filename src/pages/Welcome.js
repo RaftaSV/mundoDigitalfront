@@ -1,10 +1,13 @@
-import React from 'react';
+
 import Layout from 'components/Organisms/Layout';
 import Welcome from '../components/template/Welcome';
+import {useEffect} from 'react';
 
-document.title='Bienvenido';
 
 const WelcomeWebsite = () => {
+  useEffect(() => {
+    document.title='Bienvenido';
+  }, []);
   return (
     <Layout>
       <Welcome/>

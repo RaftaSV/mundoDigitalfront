@@ -92,12 +92,11 @@ export const StyleContainerImage = styled.div`
   ${mediaQueries.tablet}{
     display: flex;
     width: 50%;
-    align-items: center;
+    justify-content: center;
   }
   ${mediaQueries.desktop}{
     display: flex;
     width: 50%;
-    align-items: center;
   }
   `;
 export const StyleImageLogo = styled.img `
