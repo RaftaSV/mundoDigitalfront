@@ -63,7 +63,7 @@ const DailySales = () => {
       </HeaderPage>
       <ContainerCard widthDesktop={200} widthMobile={130} widthTablet={180}>
         <DailySalesInfo title={'Venta diaria'} value={totalSales}/>
-        <DailySalesInfo title={'Ganancia diaria'} value={totalSales - totalCost}/>
+        <DailySalesInfo title={'Ganancia diaria'} value={parseFloat(totalSales - totalCost).toFixed(2)}/>
       </ContainerCard>
       {loading ? (
         <Loader/>
