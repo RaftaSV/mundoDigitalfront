@@ -3,6 +3,7 @@ import Layout from 'components/Organisms/Layout';
 import categories from './Images/categories.png';
 import user from './Images/Usuarios.png';
 import information from './Images/analisis.png'
+import DailyBook from './Images/dailyBook.png';
 import {Link} from 'react-router-dom';
 import {ROUTES} from 'config';
 import {useEffect} from 'react';
@@ -25,6 +26,9 @@ const  Primary = () => {
       <ContainerCard widthMobile={130} widthTablet={160} widthDesktop={200}>
           {userTypeUpper === 'ADMIN' && (
             <>
+              <Link to={ROUTES.DAILY.absolutePath}>
+                <CardMain name={'Libro diario'} image={DailyBook} />
+              </Link>
                 <Link to={ROUTES.CATEGORY.absolutePath}>
                   <CardMain name={'Categorias'} image={categories} />
                 </Link>

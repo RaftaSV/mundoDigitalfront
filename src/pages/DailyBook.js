@@ -52,7 +52,7 @@ const DailySales = () => {
       const { totalSales, totalCost } = calculateTotals(data.invoices);
       setTotalSales(totalSales);
       setTotalCost(totalCost);
-      console.log(totalCost, totalSales);
+     document.title = `Libro Diario - ${selectedDate}`
     }
   }, [data]);
 
