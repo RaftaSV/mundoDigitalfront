@@ -33,6 +33,10 @@ export const ROUTES = {
     path: 'NotFound',
     absolutePath: '/NotFound'
   },
+  DAILY: {
+    path: 'ventas-diarias',
+    absolutePath: '/ventas'
+  },
   PRODUCT: {
     path: '/productos/:categoryId', // Ruta con parámetro
     absolutePath: (categoryId) => `/productos/${categoryId}` // Función para construir la ruta con el id

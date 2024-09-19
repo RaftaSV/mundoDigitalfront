@@ -12,6 +12,7 @@ import PageView from '../pages/PageView';
 import Primary from '../pages/Primary/Primary';
 import WelcomeWebsite from '../pages/Welcome';
 import Payment from '../pages/payment';
+import DailySales from '../pages/DailyBook';
 
 
 const Routes = () => {
@@ -28,6 +29,7 @@ const Routes = () => {
           <Route path={ROUTES.PRIMARY.absolutePath} element={<Primary/>} />
           <Route path={ROUTES.HOME.absolutePath} element={<WelcomeWebsite/>} />
           <Route path={ROUTES.PAYMENT_PRODUCTS.absolutePath} element={<Payment/>} />
+          <Route path={ROUTES.DAILY.absolutePath} element={<DailySales/>} />
         </Route>
         <Route path="*" element={<NotFound/>} />
       </ReactRoutes>
