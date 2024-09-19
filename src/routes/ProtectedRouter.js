@@ -31,6 +31,9 @@ const ProtectedRouter = () => {
     return <Outlet />;
   } else if (userType === 'CLIENTE' && !restrictedRoutesForClient.includes(location.pathname)){
     console.log('retornando a home ', userType);
+    console.log('Current Path:', location.pathname);
+    console.log('Restricted Routes:', restrictedRoutesForClient);
+
     return <Navigate to={ROUTES.HOME.absolutePath} replace={true} />;
   }
 
