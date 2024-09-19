@@ -8,7 +8,7 @@ export const StyledCard = styled.div`
   background: ${({ theme }) => theme.colors.background};
   height: 60px;
   ${mediaQueries.mobile}{
-    width: 350px;
+    width: 300px;
   }
   ${mediaQueries.tablet}{
     width: 400px;
