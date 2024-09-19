@@ -12,7 +12,6 @@ export const StyleWrapper = styled.div`
     background: ${({ theme }) => theme.colors.bgCard};
     box-shadow: ${({ theme }) => theme.colors.boxShadow};
     border-radius: 10px;
-    margin-left: 20px;
     width: 130px;
     height: 80px;
   }
