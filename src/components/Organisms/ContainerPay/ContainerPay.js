@@ -86,9 +86,11 @@ const ContainerPay = ({ cart, updateCart, totalPrice }) => {
     }
   };
 
+  console.log(cart.length)
 
   const handleSend = async () => {
     if (!validate()) return;
+    if (cart.length !==0) {
     setIsLoading(true);
     const result = await createInvoice({
       variables: {
@@ -103,6 +105,9 @@ const ContainerPay = ({ cart, updateCart, totalPrice }) => {
       setTimeout(() => {
         navigate(ROUTES.HOME.absolutePath);
       }, 500);
+    }}
+    else {
+      showAlert('', 'No se pudo enviar la compra no tienes productos en el carrito', 1500);
     }
   };
 
@@ -117,28 +122,28 @@ const ContainerPay = ({ cart, updateCart, totalPrice }) => {
       <StyledItemsWrapper>
         <StyledItems>
           <User />
-          <Title size={17} size_mobile={14} style={{ fontFamily: 'old london' }}>Cliente</Title>
+          <Title size={17} size_mobile={14} style={{ fontFamily: 'old london' }} lineHeight={20}>Cliente</Title>
         </StyledItems>
-        <Title size={17} size_mobile={14} style={{ fontFamily: 'old london' }}>{fullName}</Title>
+        <Title size={17} size_mobile={14} style={{ fontFamily: 'old london' }}  lineHeight={15} htmlTag={'p'}>{fullName}</Title>
       </StyledItemsWrapper>
       <StyledItemsWrapper>
         <StyledItems>
           <Truck />
-          <Title size={17} size_mobile={14} style={{ fontFamily: 'old london' }}>Dirección de entrega</Title>
+          <Title size={17} size_mobile={14} style={{ fontFamily: 'old london' }} lineHeight={20}>Dirección de entrega</Title>
         </StyledItems>
-        <Title size={17} size_mobile={14} style={{ fontFamily: 'old london' }}>{address}</Title>
+        <Title size={17} size_mobile={14} style={{ fontFamily: 'old london' }}  lineHeight={15} htmlTag={'p'}>{address}</Title>
       </StyledItemsWrapper>
       <StyledItemsWrapper>
         <StyledItems>
           <Phone />
-          <Title size={17} size_mobile={14} style={{ fontFamily: 'old london' }}>Teléfono</Title>
+          <Title size={17} size_mobile={14} style={{ fontFamily: 'old london' }} lineHeight={20}>Teléfono</Title>
         </StyledItems>
-        <Title size={17} size_mobile={14} style={{ fontFamily: 'old london' }}>{phone}</Title>
+        <Title size={17} size_mobile={14} style={{ fontFamily: 'old london' }}  lineHeight={15} htmlTag={'p'}>{phone}</Title>
       </StyledItemsWrapper>
       <StyledItemsWrapper>
         <StyledItems>
           <CreditCard />
-          <Title size={17} size_mobile={14} style={{ fontFamily: 'old london' }}>Número de tarjeta</Title>
+          <Title size={17} size_mobile={14} style={{ fontFamily: 'old london' }}  lineHeight={15} htmlTag={'p'}>Número de tarjeta</Title>
         </StyledItems>
         <Input
           placeholder="4544 3332 2222 1111"
@@ -152,7 +157,7 @@ const ContainerPay = ({ cart, updateCart, totalPrice }) => {
       </StyledItemsWrapper>
       <StyledItemsWrapper>
         <StyledItems>
-          <Title size={17} size_mobile={14} style={{ fontFamily: 'old london' }}>Fecha de expiración</Title>
+          <Title size={17} size_mobile={14} style={{ fontFamily: 'old london' }}  lineHeight={15} htmlTag={'p'}>Fecha de expiración</Title>
         </StyledItems>
         <Input
           placeholder="MM/YY"
@@ -166,7 +171,7 @@ const ContainerPay = ({ cart, updateCart, totalPrice }) => {
       </StyledItemsWrapper>
       <StyledItemsWrapper>
         <StyledItems>
-          <Title size={17} size_mobile={14} style={{ fontFamily: 'old london' }}>CVV</Title>
+          <Title size={17} size_mobile={14} style={{ fontFamily: 'old london' }} lineHeight={15} htmlTag={'p'}>CVV</Title>
         </StyledItems>
         <Input
           placeholder="CVV"
