@@ -7,6 +7,7 @@ export const StyledCard = styled.div`
   display: flex;
   background: ${({ theme }) => theme.colors.background};
   height: 60px;
+  position: relative;
   ${mediaQueries.mobile}{
     width: 300px;
   }
@@ -47,3 +48,4 @@ export const StyledPrice = styled.div`
 export const StyledButton = styled(Button)`
   background: ${({ theme }) => theme.colors.transparent};
 `
+export

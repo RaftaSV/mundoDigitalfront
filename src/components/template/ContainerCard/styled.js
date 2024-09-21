@@ -5,7 +5,7 @@ export const Container = styled.div`
   gap: 20px;
   margin-top: 20px;
   grid-auto-rows: min-content;
-  min-height: 90px;
+  min-height: 200px;
   ${mediaQueries.mobile} {
     width: 100%;
     justify-content: center;
@@ -24,7 +24,7 @@ export const Container = styled.div`
   }
 
   ${mediaQueries.desktop} {
-    width: 100%;
+    width: 98%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(${({ $widthDesktop }) => $widthDesktop}px, 0px));
     gap: 20px;

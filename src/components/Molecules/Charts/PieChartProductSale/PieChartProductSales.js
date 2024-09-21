@@ -18,7 +18,7 @@ const getRandomColor = () => {
   return color;
 };
 
-const PieChart = ({ data = [], title, totalView = null }) => {
+const PieChartProductSales = ({ data = [], title,  }) => {
   const KEY_THEME_NAME = 'theme';
   const localTheme = storage.getItem(KEY_THEME_NAME);
   const [background, setBackground] = useState();
@@ -34,13 +34,12 @@ const PieChart = ({ data = [], title, totalView = null }) => {
     }
   }, [localTheme]);
 
-  const TotalView = totalView ? totalView : 0;
   const chartData = useMemo(() => {
     return {
-      labels: data?.map(item => item.pageUrl),
+      labels: data?.map(item => item.product.productName),
       datasets: [
         {
-          data: data?.map(item => item.totalViews),
+          data: data?.map(item => item.cant),
           backgroundColor: data?.map(() => getRandomColor()),
           borderColor: data?.map(() => getRandomColor()),
           borderWidth: 0.5,
@@ -79,18 +78,18 @@ const PieChart = ({ data = [], title, totalView = null }) => {
 
   return (
     <StyledWrapper>
-      {(data?.length > 0 || TotalView > 0) && data ? (
+      {(data?.length  > 0) && data ? (
         <>
-      <Title size={18} size_mobile={8}>{title}</Title>
-      <StyledWrapperChart>
-        <Pie data={chartData} options={options}/>
-      </StyledWrapperChart>
+          <Title size={18} size_mobile={8}>{title}</Title>
+          <StyledWrapperChart>
+            <Pie data={chartData} options={options}/>
+          </StyledWrapperChart>
         </>
-        ) : (
-          <>No hay datos</>
-        )}
+      ) : (
+        <>No hay datos</>
+      )}
     </StyledWrapper>
   );
 };
 
-export default PieChart;
+export default PieChartProductSales;

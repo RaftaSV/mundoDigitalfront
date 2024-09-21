@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
+import {CalculatorIcon, LucideShoppingCart } from 'lucide-react'
 import useQuery from '../hooks/useQuery';
 import Layout from 'components/Organisms/Layout';
 import Invoice from '../components/Organisms/Invoice';
@@ -7,7 +8,7 @@ import Date from '../components/Atoms/Date';
 import useLatAmDate from 'hooks/getDate';
 import ContainerCard from '../components/template/ContainerCard';
 import Loader from '../components/Molecules/Loader';
-import DailySalesInfo from '../components/Molecules/DailySales';
+import DailySalesInfo from '../components/Molecules/Card/InfoCardDaily';
 
 const DailySales = () => {
   const latAmDate = useLatAmDate();
@@ -61,9 +62,18 @@ const DailySales = () => {
       <HeaderPage title={'Libro Diario'}>
         <Date value={selectedDate} onChange={handleChangeDate} />
       </HeaderPage>
-      <ContainerCard widthDesktop={200} widthMobile={130} widthTablet={180}>
-        <DailySalesInfo title={'Venta diaria'} value={totalSales}/>
-        <DailySalesInfo title={'Ganancia diaria'} value={parseFloat(totalSales - totalCost).toFixed(2)}/>
+      <ContainerCard widthDesktop={300} widthMobile={130} widthTablet={180}>
+        <DailySalesInfo title={'Venta diaria'} value={totalSales}
+                        color={'placeholder'}
+        >
+          <LucideShoppingCart size={25}/>
+        </DailySalesInfo>
+        <DailySalesInfo title={'Ganancia diaria'}
+                        value={parseFloat(totalSales - totalCost).toFixed(2)}
+                        color={'secondary'}
+        >
+          <CalculatorIcon size={25}/>
+        </DailySalesInfo>
       </ContainerCard>
       {loading ? (
         <Loader/>

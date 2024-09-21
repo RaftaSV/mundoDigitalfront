@@ -3,7 +3,7 @@ const colorsLight = {
   secondary: '#ff9800', // Naranja secundario
   accent: '#673ab7', // Púrpura de acento
   error: '#f44336', // Rojo de error
-  warning: '#ffeb3b', // Amarillo de advertencia
+  warning: '#c5b957', // Amarillo de advertencia
   info: '#2196f3', // Azul de información
   success: '#4caf50', // Verde de éxito
   black: '#212121', // Negro
